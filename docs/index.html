@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Каталог ИИ-бизнесов мира на август 2026 с проверкой российского аналога: 439 идей по 23 семьям.">
+<title>Каталог ИИ-бизнесов 2026</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+</head>
+<body>
+<header class="top">
+  <div class="top-row">
+    <button class="back" id="back" hidden aria-label="Назад">←</button>
+    <h1 id="title">Каталог ИИ-бизнесов</h1>
+  </div>
+  <div class="search-row" id="searchRow">
+    <input id="q" type="search" inputmode="search" autocomplete="off"
+           placeholder="Поиск: название, игрок, суть" aria-label="Поиск по идеям">
+  </div>
+  <div class="chips" id="chips"></div>
+</header>
+
+<main id="app" aria-live="polite">
+  <p class="loading">Загрузка данных…</p>
+</main>
+
+<nav class="tabs" role="navigation">
+  <a href="#/" data-tab="ideas"><span>◆</span>Идеи</a>
+  <a href="#/families" data-tab="families"><span>▤</span>Семьи</a>
+  <a href="#/docs" data-tab="docs"><span>▣</span>Разборы</a>
+  <a href="#/about" data-tab="about"><span>?</span>О работе</a>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
