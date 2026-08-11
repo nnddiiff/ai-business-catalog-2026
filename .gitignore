@@ -1,0 +1,13 @@
+# служебное окружение
+.claude/
+.claude-last-session
+.playwright-mcp/
+
+# сырые дампы прогонов: тяжёлые и для чтения бесполезны
+catalog/data/raw-journal.jsonl
+research/data/raw-workflow-result.json
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
