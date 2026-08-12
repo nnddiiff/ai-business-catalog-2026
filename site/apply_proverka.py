@@ -27,7 +27,12 @@ from normalize import normalize_file  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 FAMILIES = ROOT / "catalog" / "families"
-PROVERKA = ROOT / "catalog" / "data" / "proverka.json"
+DATA = ROOT / "catalog" / "data"
+
+
+def proverka_files() -> list[Path]:
+    """Все журналы проверки: исходный прогон плюс более поздние заходы скептиков."""
+    return sorted(DATA.glob("proverka*.json"))
 
 SECTION_MARK = "## Проверка скептиком: правки к цифрам этой семьи"
 VERDICTS = ("частично", "занято", "свободно", "нет данных")
@@ -62,7 +67,10 @@ def family_code(raw: str) -> str:
 
 def load() -> tuple[dict, dict, dict]:
     """Готовит правки: по id карточки — вердикты и цифры, по семье — непривязанные цифры."""
-    data = json.loads(PROVERKA.read_text(encoding="utf-8"))
+    data: list[dict] = []
+    for path in proverka_files():
+        chunk = json.loads(path.read_text(encoding="utf-8"))
+        data += chunk if isinstance(chunk, list) else [chunk]
     ids_by_fam: dict[str, list[str]] = {}
     file_by_fam: dict[str, Path] = {}
     for p in sorted(FAMILIES.glob("*.md")):
