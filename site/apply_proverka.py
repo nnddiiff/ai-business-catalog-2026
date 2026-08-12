@@ -52,6 +52,16 @@ def short_verdict(text: str) -> str:
     return ""
 
 
+def drop_verdict_prefix(text: str) -> str:
+    """Срезает начальное слово-вердикт: заголовок правки его уже назвал."""
+    t = str(text).strip()
+    for v in VERDICTS:
+        if t.lower().startswith(v):
+            rest = t[len(v):].lstrip(" —–-:;,.")
+            return rest or t
+    return t
+
+
 def one_line(text: str, limit: int = 0) -> str:
     """Схлопывает многострочную цитату в одну строку markdown-списка."""
     t = re.sub(r"\s+", " ", str(text)).strip()
@@ -135,7 +145,9 @@ def build_proverka_field(cid: str, verdicts: dict, numbers: dict) -> str:
             )
         parts.append(f"- {head}")
         for ch in passes:
-            parts.append(f"  - {one_line(ch.get('should_be'))}")
+            why = one_line(drop_verdict_prefix(ch.get("should_be")))
+            if why:
+                parts.append(f"  - {why}")
             if ch.get("found"):
                 parts.append(f"    Найдено при проверке: {one_line(ch.get('found'))}")
     for corr in numbers.get(cid, []):
