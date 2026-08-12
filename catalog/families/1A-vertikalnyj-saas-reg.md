@@ -58,7 +58,7 @@ Foundation Capital: последние проценты качества сто�
   - Clio (Clio Duo + vLex) — clio.com
   - Spellbook — spellbook.com
 - **money**:
-  - Harvey: 200 млн долларов при оценке 11 млрд, раунд закрыт 25 марта 2026, со-ведущие GIC и Sequoia ([Reuters, 25.03.2026](https://www.reuters.com/technology/legal-software-firm-harvey-valued-11-billion-latest-funding-round-2026-03-25/), [блог Harvey](https://www.harvey.ai/blog/harvey-raises-at-dollar11-billion-valuation-to-scale-agents-across-law-firms-and-enterprises)); суммарно привлечено 1,22 млрд долларов за 11 раундов (по данным Tracxn, профиль 2026).
+  - Harvey: 200 млн долларов при оценке 11 млрд, раунд закрыт 25 марта 2026, со-ведущие GIC и Sequoia ([Reuters, 25.03.2026](https://www.reuters.com/technology/legal-software-firm-harvey-valued-11-billion-latest-funding-round-2026-03-25/), независимо подтверждено [CNBC, 25.03.2026](https://www.cnbc.com/2026/03/25/legal-ai-startup-harvey-raises-200-million-at-11-billion-valuation.html) и Bloomberg того же дня, [блог Harvey](https://www.harvey.ai/blog/harvey-raises-at-dollar11-billion-valuation-to-scale-agents-across-law-firms-and-enterprises)); суммарно привлечено 1,22 млрд долларов за 11 раундов (по данным Tracxn, профиль 2026).
   - Harvey: оценка выручки 300 млн долларов ARR на май 2026, 195 млн на конец 2025, 100 млн в августе 2025; 142 000+ юристов в 1 500+ организациях в 60 странах — **оценка Sacra**, не отчётность компании ([Sacra](https://sacra.com/c/harvey/)).
   - Legora: 550 млн долларов при оценке 5,55 млрд, 10 марта 2026, ведущий Accel; расширение раунда до 600 млн при 5,6 млрд — 30 апреля 2026 ([Legora](https://legora.com/newsroom/legora-raises-550-million-series-d-to-fuel-us-growth), [tech.eu, 30.04.2026](https://tech.eu/2026/04/30/legora-extends-series-d-to-600m-with-backing-from-atlassian-and-nventures-reaching-56b-valuation/)).
   - Legora: 100 млн долларов ARR в апреле 2026 против 50 млн на конец 2025 и 3 млн на конец 2024, 1 000+ клиентов в 50 странах — **оценка Sacra** ([Sacra](https://sacra.com/c/legora/)).
@@ -167,7 +167,7 @@ Foundation Capital: последние проценты качества сто�
   - Wolters Kluwer UpToDate — wolterskluwer.com
   - Doximity — doximity.com
 - **money**:
-  - OpenEvidence: 250 млн долларов Series D при оценке 12 млрд, 21 января 2026, ведущие Thrive и DST — оценка удвоилась за три месяца ([Reuters, 21.01.2026](https://www.reuters.com/business/healthcare-pharmaceuticals/medical-ai-startup-openevidence-doubles-valuation-12-billion-latest-round-2026-01-21/)). Ранее: 210 млн при 3,5 млрд в июле 2025, 200 млн при 6,1 млрд в октябре 2025; всего около 700 млн долларов.
+  - OpenEvidence: 250 млн долларов Series D при оценке 12 млрд, 21 января 2026, ведущие Thrive и DST — оценка удвоилась за три месяца (независимо подтверждено STAT и CNBC от 21.01.2026 и пресс-релизом Businesswire; [Reuters, 21.01.2026](https://www.reuters.com/business/healthcare-pharmaceuticals/medical-ai-startup-openevidence-doubles-valuation-12-billion-latest-round-2026-01-21/)). Ранее: 210 млн при 3,5 млрд в июле 2025, 200 млн при 6,1 млрд в октябре 2025; всего около 700 млн долларов.
   - Выручка: 100 млн долларов в годовом выражении к январю 2026 (по обзорам [healthcare.digital](https://www.healthcare.digital/single-post/openevidence-chatgpt-for-doctors-2026-plans-and-strategic-outlook) и [Clinical AI Report](https://clinicalaireport.com/reviews/open-evidence)); Sacra даёт 150 млн в годовом выражении за 2025 против 7,9 млн за 2024 и валовую маржу 90% (**оценка Sacra**).
   - Объём использования: около 20 млн клинических консультаций в месяц в январе 2026 против 18 млн в декабре 2025 и около 3 млн годом ранее; 760 тыс. зарегистрированных врачей США на декабрь 2025 ([Wikipedia со ссылкой на отчётность компании](https://en.wikipedia.org/wiki/OpenEvidence)); один миллион консультаций за сутки 10 марта 2026 (**данные компании**).
 - **pricing**: Реклама. CPM от 70 до 1 000+ долларов против 5–15 в обычных социальных сетях, средний доход на пользователя около 124 долларов в год (**оценка Sacra**). Врач не платит вообще. Дополнительно готовится корпоративная версия без рекламы и партнёрство с Veeva для фармы.
@@ -662,6 +662,8 @@ Foundation Capital: последние проценты качества сто�
 13. **FTC против DoNotPay, Bench, Pear Therapeutics, Atrium, Kira Systems, Vesttoo.** Использованы как контекстные примеры провалов по памяти категории; первичные документы в этой сессии не открывал, помечены как требующие проверки.
 14. **Точное число медизделий с ИИ в РФ.** Источники расходятся: 59 на 4 августа 2026 (Webiomed), 57 на форуме «НОВАМЕД-2026» (Татар-информ), 53 (Эксперт), 49 (Медвестник). Разница объясняется датами и способом подсчёта действующих удостоверений, но единого официального счётчика я не нашёл.
 15. **Каналы поиска.** Поисковая выдача через `lite.duckduckgo.com`, `html.duckduckgo.com`, Mojeek, SearXNG и Bing в этой среде закрыта капчей — весь поиск шёл через Brave Search API с ограничением по частоте запросов, поэтому число проверенных утверждений ограничено не желанием, а квотой. Прямые запросы к сайтам компаний и к Sacra работали.
+
+---
 
 ---
 
