@@ -28,8 +28,13 @@ CARD_RE = re.compile(
     r"^#{2,4}\s+([A-Za-z]{0,3}\d{1,2}[A-Za-z]?(?:-[A-Za-z0-9]+)+)\s*[—–-]+\s*(.+)$"
 )
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
-# Поле карточки во всех встреченных видах: "- **id**: v", "**id:** v", "**id** v", "**id**".
-FIELD_RE = re.compile(r"^\s*(?:[-*+]\s+)?\*\*([a-z_]+)\s*:?\s*\*\*\s*:?\s*(.*)$")
+# Поле карточки во всех встреченных видах: "- **id**: v", "**id:** v", "**id.** v", "**id**".
+FIELD_RE = re.compile(r"^\s*(?:[-*+]\s+)?\*\*([a-z_]+)\s*[:.]?\s*\*\*\s*[:.]?\s*(.*)$")
+# Семь семей записали карточку двухколоночной таблицей: "| `id` | значение |".
+TABLE_FIELD_RE = re.compile(r"^\s*\|\s*`?([a-z_]+)`?\s*\|(.*?)\|?\s*$")
+# Шапка и разделитель такой таблицы — служебные строки, в текст карточки они не идут.
+TABLE_HEAD_RE = re.compile(r"^\s*\|\s*(?:поле|field|параметр)\s*\|", re.IGNORECASE)
+TABLE_RULE_RE = re.compile(r"^\s*\|[\s:|-]+\|\s*$")
 
 FIELD_ORDER = [
     "one_liner", "buyer", "players", "money", "pricing", "moat", "capital",
@@ -51,6 +56,8 @@ FIELD_LABEL = {
     "failures": "Кто пробовал и закрылся",
 }
 FAMILY_TITLE_RE = re.compile(r"^#\s+(?:Семья\s+)?([0-9AB]+)[.:]?\s*(.*)$")
+# Имена полей, по которым строка таблицы опознаётся как поле, а не как содержательная таблица.
+KNOWN_FIELDS = frozenset(FIELD_ORDER) | {"id", "name", "family"}
 
 # Служебная диагностика инструментов, которой не место в отчёте для читателя.
 NOISE_RE = re.compile(
@@ -83,6 +90,24 @@ def derive_verdict(ru_analog: str) -> str:
         if v in low[:120]:
             return v
     return "нет данных"
+
+
+PROVERKA_VERDICT_RE = re.compile(r"стало\s+«([^»]+)»")
+
+
+def card_verdict(value: str) -> str:
+    """Вердикт, зафиксированный полем `ru_verdict` карточки, — главный источник."""
+    v = (value or "").strip().lower().rstrip(".")
+    return v if v in VERDICTS else ""
+
+
+def verdict_from_proverka(proverka: str) -> str:
+    """Вердикт, установленный адверсариальной проверкой; он главнее исходного текста карточки."""
+    m = PROVERKA_VERDICT_RE.search(proverka or "")
+    if not m:
+        return ""
+    value = m.group(1).strip().lower().rstrip(".")
+    return value if value in VERDICTS else ""
 
 
 def strip_noise(text: str) -> str:
@@ -342,6 +367,10 @@ def parse_card(cid: str, name: str, fam_code: str, body: list[str]) -> Card:
     current: str | None = None
     for line in body:
         m = FIELD_RE.match(line)
+        if not m:
+            tm = TABLE_FIELD_RE.match(line)
+            if tm and tm.group(1) in KNOWN_FIELDS:
+                m = tm
         if m:
             current = m.group(1)
             raw.setdefault(current, [])
@@ -351,6 +380,10 @@ def parse_card(cid: str, name: str, fam_code: str, body: list[str]) -> Card:
         if re.match(r"^\s*(?:---+|\*\*\*+)\s*$", line):
             current = None
             continue
+        # Шапка и разделитель таблицы полей стоят до первого поля; внутри значения
+        # такие же строки могут быть настоящей таблицей, поэтому режем только снаружи.
+        if current is None and (TABLE_HEAD_RE.match(line) or TABLE_RULE_RE.match(line)):
+            continue
         if current is not None:
             raw[current].append(line.rstrip())
             continue
@@ -358,10 +391,11 @@ def parse_card(cid: str, name: str, fam_code: str, body: list[str]) -> Card:
             notes.append(line)
 
     fields = {k: "\n".join(v).strip() for k, v in raw.items() if "\n".join(v).strip()}
+    family = (fields.pop("family", "") or fam_code).split()
     return Card(
         id=fields.pop("id", cid) or cid,
         name=fields.pop("name", "") or name,
-        family=(fields.pop("family", fam_code) or fam_code).split()[0].strip(".,"),
+        family=family[0].strip(".,") if family else fam_code,
         fields=fields,
         notes="\n".join(notes).strip(),
     )
@@ -397,7 +431,12 @@ def build() -> None:
     for fam in families:
         cards = []
         for c in fam.cards:
-            verdict = verdict_by_id.get(c.id) or derive_verdict(c.fields.get("ru_analog", ""))
+            verdict = (
+                card_verdict(c.fields.get("ru_verdict", ""))
+                or verdict_from_proverka(c.fields.get("proverka", ""))
+                or verdict_by_id.get(c.id)
+                or derive_verdict(c.fields.get("ru_analog", ""))
+            )
             rendered = {}
             for k, v in c.fields.items():
                 v = strip_noise(v)

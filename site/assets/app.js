@@ -2,15 +2,20 @@
 'use strict';
 
 var FIELD_ORDER = ['one_liner', 'buyer', 'players', 'money', 'pricing', 'moat', 'capital',
-  'time_to_revenue', 'foreign_dependency', 'ru_analog', 'ru_fit', 'kill_switch', 'failures'];
+  'time_to_revenue', 'foreign_dependency', 'ru_analog', 'ru_fit', 'kill_switch', 'failures',
+  'proverka'];
 
 var FIELD_LABEL = {
   one_liner: 'Суть', buyer: 'Кто платит', players: 'Игроки', money: 'Деньги',
   pricing: 'Цена и модель оплаты', moat: 'Что защищает', capital: 'Капиталоёмкость',
   time_to_revenue: 'Когда первый платёж', foreign_dependency: 'Зависимость от зарубежного',
   ru_analog: 'Российский аналог', ru_fit: 'Что ломается в России',
-  kill_switch: 'Что убьёт идею', failures: 'Кто пробовал и закрылся'
+  kill_switch: 'Что убьёт идею', failures: 'Кто пробовал и закрылся',
+  proverka: 'Что изменила проверка скептиком'
 };
+
+/* Служебные поля: вердикт показан бейджем в шапке, второй раз его печатать незачем. */
+var FIELD_HIDDEN = { ru_verdict: true };
 
 var BADGE = { 'свободно': 'b-free', 'частично': 'b-part', 'занято': 'b-taken', 'нет данных': 'b-none' };
 var PAGE = 40;
@@ -169,11 +174,12 @@ function renderIdea(it) {
 
   FIELD_ORDER.forEach(function (k) {
     if (!it.fields[k]) return;
-    html += '<div class="field"><span class="field-label">' + esc(FIELD_LABEL[k] || k) +
+    var cls = k === 'proverka' ? 'field field-check' : 'field';
+    html += '<div class="' + cls + '"><span class="field-label">' + esc(FIELD_LABEL[k] || k) +
       '</span><div class="field-value">' + it.fields[k] + '</div></div>';
   });
   Object.keys(it.fields).forEach(function (k) {
-    if (FIELD_ORDER.indexOf(k) !== -1) return;
+    if (FIELD_ORDER.indexOf(k) !== -1 || FIELD_HIDDEN[k]) return;
     html += '<div class="field"><span class="field-label">' + esc(k) +
       '</span><div class="field-value">' + it.fields[k] + '</div></div>';
   });
