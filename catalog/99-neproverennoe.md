@@ -4,16 +4,16 @@
 
 ## Что проверено скептиком, а что нет
 
-Адверсариальную проверку прошли **23 семьи из 26**.
-Без проверки остаются: 19, 21, 23 — вердикты по ним держатся только на том, что нашёл или не нашёл агент семьи.
+Адверсариальную проверку прошли **24 семьи из 26**.
+Без проверки остаются: 21, 23 — вердикты по ним держатся только на том, что нашёл или не нашёл агент семьи.
 
-Из вердиктов «свободно» проверку прошли **29 из 57**; остальные 28 держатся на первичном поиске одного агента.
+Из вердиктов «свободно» проверку прошли **30 из 57**; остальные 27 держатся на первичном поиске одного агента.
 
 Почему это важно именно для «свободно»: в предыдущем прогоне этого же проекта (`../research/`) целевой проход по российским сторам и каталогам убил **6 кандидатов из 8**, уже прошедших ту же первичную проверку. Там, где скептик проходил по вердиктам заново, направление правок всегда одно — ниша оказывается занята плотнее, чем считал первый агент. Единственное исключение за все заходы — `C17-agent-identity-authz`, где вердикт понижен до «свободно», и то не по новой находке, а потому что прежнее «частично» не подтверждалось собственным текстом карточки.
 
 Поэтому вердикт «свободно» здесь правильно читать как «не найдено при нынешней глубине поиска», а не как доказанную пустоту рынка. Непроверенные «свободно» перед любым решением нужно атаковать отдельно — русскими словами задачи, а не калькой с английского термина: именно так находилось большинство пропущенных российских игроков.
 
-Непроверенные вердикты «свободно»: `1A-17-regulatory-writing-pharma`, `1B-agro-roboty-propolka`, `1B-horeca-drivethru`, `1B-strojka-razreshenija`, `4B-deterministic-sim-testing`, `C10-price-index`, `C10-quality-router`, `C12-agent-memory-service`, `C12-code-sandbox-api`, `C13-otel-genai-standard`, `C16-agent-dispute-liability`, `C19-os-agent-store`, `C21-agent-audit-trail`, `C21-bias-audit`, `C21-eu-authorised-rep`, `C21-notified-body`, `C21-standard-plus-insurance`, `C21-techdoc-factory`, `C23-aml-alert-agent`, `C23-digital-analysis-provider`, `C23-exchanger-licensing`, `C23-travel-rule`, `C3-adhd-life-admin`, `C3-faith-ai`, `C6-agentic-dev-studio`, `C6-ru-import-substitution-migration`, `C9-agent-identity`, `H2-realtime-copilot`.
+Непроверенные вердикты «свободно»: `1A-17-regulatory-writing-pharma`, `1B-agro-roboty-propolka`, `1B-horeca-drivethru`, `1B-strojka-razreshenija`, `4B-deterministic-sim-testing`, `C10-price-index`, `C10-quality-router`, `C12-agent-memory-service`, `C12-code-sandbox-api`, `C13-otel-genai-standard`, `C16-agent-dispute-liability`, `C21-agent-audit-trail`, `C21-bias-audit`, `C21-eu-authorised-rep`, `C21-notified-body`, `C21-standard-plus-insurance`, `C21-techdoc-factory`, `C23-aml-alert-agent`, `C23-digital-analysis-provider`, `C23-exchanger-licensing`, `C23-travel-rule`, `C3-adhd-life-admin`, `C3-faith-ai`, `C6-agentic-dev-studio`, `C6-ru-import-substitution-migration`, `C9-agent-identity`, `H2-realtime-copilot`.
 
 Не выполнены сквозные проходы по российским каналам сбыта — сторы и мобильные приложения; vc.ru, Habr, Product Radar; CNews, TAdviser, госзакупки и интеграторы; каталоги телеграм-ботов и VK Mini Apps, — а также три отдельные охоты за провалами. Раздел `90-provaly.md` собран из того, что попалось агентам семей попутно, поэтому число провалов в нём — нижняя граница.
 
