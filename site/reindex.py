@@ -62,12 +62,14 @@ def update_index_md(verdicts: dict[str, str]) -> tuple[int, int]:
     return rows, changed
 
 
-def update_totals(counts: dict[str, int], total: int) -> None:
+def update_totals(counts: dict[str, int], total: int, distinct: int) -> None:
     """Обновляет итоговую строку в индексе и в README каталога."""
     summary = (
-        f"{total} идей, 23 семьи по таксономии (26 файлов — семьи 1, 4 и 5 разбиты на "
-        f"подсемьи A/B). По России: {counts['частично']} частично, {counts['занято']} занято, "
-        f"{counts['свободно']} свободно, {counts['нет данных']} нет данных."
+        f"{total} карточек и {distinct} различимых идей ({total - distinct} карточек — "
+        f"повтор идеи из другой семьи), 23 семьи по таксономии (26 файлов — семьи 1, 4 и 5 "
+        f"разбиты на подсемьи A/B). По России: {counts['частично']} частично, "
+        f"{counts['занято']} занято, {counts['свободно']} свободно, "
+        f"{counts['нет данных']} нет данных."
     )
     text = INDEX_MD.read_text(encoding="utf-8")
     text = re.sub(r"\*\*Итог:[^*]+\*\*", f"**Итог: {summary}**", text, count=1)
@@ -76,7 +78,7 @@ def update_totals(counts: dict[str, int], total: int) -> None:
     readme = CATALOG / "README.md"
     rt = readme.read_text(encoding="utf-8")
     rt = re.sub(
-        r"\*\*\d+ идей, 23 семьи[^*]+\*\*",
+        r"\*\*\d+ (?:идей|карточек)[^*]+\*\*",
         f"**{summary}**",
         rt,
         count=1,
@@ -121,8 +123,11 @@ def update_index_json(verdicts: dict[str, str], families) -> tuple[int, int]:
 def main() -> None:
     verdicts, families = current_verdicts()
     counts = {v: sum(1 for x in verdicts.values() if x == v) for v in VERDICTS}
+    distinct = sum(
+        1 for fam in families for c in fam.cards if not c.fields.get("duplicate_of")
+    )
     rows, changed = update_index_md(verdicts)
-    update_totals(counts, len(verdicts))
+    update_totals(counts, len(verdicts), distinct)
     fams, total = update_index_json(verdicts, families)
     print(f"00-index.md: строк идей {rows}, вердиктов исправлено {changed}")
     print(f"data/index.json: семей {fams}, идей {total}")

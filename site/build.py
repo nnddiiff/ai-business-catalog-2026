@@ -457,6 +457,7 @@ def build() -> None:
             ideas.append({
                 "id": card["id"], "name": card["name"], "family": card["family"],
                 "family_title": card["family_title"], "verdict": card["verdict"],
+                "duplicate": bool(c.fields.get("duplicate_of")),
                 # В списке — только текст: строка обёрнута в ссылку, вложенные ссылки недопустимы.
                 "one_liner": plain(card["fields"].get("one_liner", ""), 240),
                 "key_number": plain(card["key_number"], 150),
@@ -498,10 +499,13 @@ def build() -> None:
     DOCS.mkdir(exist_ok=True)
     (DOCS / "data").mkdir(exist_ok=True)
     counts = {v: sum(1 for i in ideas if i["verdict"] == v) for v in VERDICTS}
+    # Часть идей записана в двух-трёх семьях сразу; в счёт различимых идёт основная карточка.
+    distinct = sum(1 for i in ideas if not i["duplicate"])
 
     (DOCS / "data" / "list.json").write_text(
         json.dumps({"ideas": ideas, "families": fam_out, "counts": counts,
-                    "total": len(ideas)}, ensure_ascii=False, separators=(",", ":")),
+                    "total": len(ideas), "distinct": distinct},
+                   ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
     fam_dir = DOCS / "data" / "family"
@@ -523,7 +527,7 @@ def build() -> None:
         shutil.copy2(asset, DOCS / asset.name)
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
 
-    print(f"семей: {len(fam_out)}  идей: {len(ideas)}")
+    print(f"семей: {len(fam_out)}  карточек: {len(ideas)}  различимых идей: {distinct}")
     print("вердикты:", counts)
     for f in fam_out:
         if f["count"] == 0:

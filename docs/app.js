@@ -3,7 +3,7 @@
 
 var FIELD_ORDER = ['one_liner', 'buyer', 'players', 'money', 'pricing', 'moat', 'capital',
   'time_to_revenue', 'foreign_dependency', 'ru_analog', 'ru_fit', 'kill_switch', 'failures',
-  'proverka'];
+  'proverka', 'duplicate_of', 'see_also'];
 
 var FIELD_LABEL = {
   one_liner: 'Суть', buyer: 'Кто платит', players: 'Игроки', money: 'Деньги',
@@ -11,7 +11,8 @@ var FIELD_LABEL = {
   time_to_revenue: 'Когда первый платёж', foreign_dependency: 'Зависимость от зарубежного',
   ru_analog: 'Российский аналог', ru_fit: 'Что ломается в России',
   kill_switch: 'Что убьёт идею', failures: 'Кто пробовал и закрылся',
-  proverka: 'Что изменила проверка скептиком'
+  proverka: 'Что изменила проверка скептиком',
+  duplicate_of: 'Повтор карточки', see_also: 'Смежные карточки'
 };
 
 /* Служебные поля: вердикт показан бейджем в шапке, второй раз его печатать незачем. */
@@ -94,7 +95,10 @@ function viewIdeas() {
   renderChips();
   var list = filtered();
   var slice = list.slice(0, state.shown);
-  var html = '<p class="count">Найдено ' + list.length + ' из ' + DATA.total + '</p>';
+  var dupes = DATA.total - (DATA.distinct || DATA.total);
+  var html = '<p class="count">Найдено ' + list.length + ' из ' + DATA.total +
+    (dupes ? ' <span class="count-note">(' + DATA.distinct + ' различимых: ' + dupes +
+      ' карточек — повтор идеи из другой семьи)</span>' : '') + '</p>';
   if (!list.length) {
     html += '<p class="empty">Ничего не нашлось. Попробуйте другое слово или снимите фильтр.</p>';
   } else {
