@@ -22,7 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from build import CARD_RE  # noqa: E402
+from build import parse_family  # noqa: E402
 from normalize import normalize_file  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -86,11 +86,9 @@ def load() -> tuple[dict, dict, dict]:
     for p in sorted(FAMILIES.glob("*.md")):
         code = p.name.split("-", 1)[0]
         file_by_fam[code] = p
-        # CARD_RE рассчитан на отдельную строку (в сборщике применяется к строке заголовка).
-        ids_by_fam[code] = [
-            m.group(1) for m in (CARD_RE.match(l) for l in p.read_text(encoding="utf-8").split("\n"))
-            if m
-        ]
+        # Идентификатор берём из поля карточки, а не из заголовка: в части семей
+        # заголовок сокращён, и привязка правок по нему молча теряет всю семью.
+        ids_by_fam[code] = [c.id for c in parse_family(p).cards]
 
     verdicts: dict[str, dict] = {}
     numbers: dict[str, list[dict]] = defaultdict(list)
