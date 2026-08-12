@@ -36,711 +36,696 @@ BPM-вендорами; свободны узкие инфраструктурн
 
 ## C12-orchestration-framework-cloud — Платформа поверх открытого фреймворка оркестрации
 
-**name:** Платформа поверх открытого фреймворка оркестрации
-
-**one_liner:** команда разработки платит за облако вокруг бесплатного фреймворка — трассировку,
-деплой долгоживущих графов, версии промптов и оценку.
-
-**family:** 12
-
-**buyer:** разработчик и инженерная команда продукта; апселл — корпорация (SSO, self-hosted).
-
-**players:**
-- langchain.com — LangChain / LangGraph + LangSmith, Deployment, Sandboxes, LLM Gateway, Fleet
-- crewai.com — CrewAI, ролевые «команды» агентов, enterprise-редакция
-- llamaindex.ai — LlamaIndex + LlamaCloud/LlamaParse, агенты над документами
-- mastra.ai — TypeScript-фреймворк агентов
-- learn.microsoft.com/agent-framework — Microsoft Agent Framework (поглотил AutoGen и Semantic Kernel)
-
-**money:**
-- LangChain: 125 млн $ Series B при оценке 1,25 млрд $, объявлено 20–21.10.2025
+- **id**: C12-orchestration-framework-cloud
+- **name**: Платформа поверх открытого фреймворка оркестрации
+- **one_liner**:
+  команда разработки платит за облако вокруг бесплатного фреймворка — трассировку,
+  деплой долгоживущих графов, версии промптов и оценку.
+- **family**: 12
+- **buyer**: разработчик и инженерная команда продукта; апселл — корпорация (SSO, self-hosted).
+- **players**:
+  - langchain.com — LangChain / LangGraph + LangSmith, Deployment, Sandboxes, LLM Gateway, Fleet
+  - crewai.com — CrewAI, ролевые «команды» агентов, enterprise-редакция
+  - llamaindex.ai — LlamaIndex + LlamaCloud/LlamaParse, агенты над документами
+  - mastra.ai — TypeScript-фреймворк агентов
+  - learn.microsoft.com/agent-framework — Microsoft Agent Framework (поглотил AutoGen и Semantic Kernel)
+- **money**:
+  - LangChain: 125 млн $ Series B при оценке 1,25 млрд $, объявлено 20–21.10.2025
   ([langchain.com/blog/series-b](https://www.langchain.com/blog/series-b),
   [TechCrunch 21.10.2025](https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/)).
   Выручка: 12–16 млн $ ARR по состоянию на июнь 2025 — данные TechCrunch, пересказаны
   [SiliconANGLE 20.10.2025](https://siliconangle.com/2025/10/20/ai-agent-tooling-provider-langchain-raises-125m-1-25b-valuation/);
   агрегатор [getlatka](https://getlatka.com/companies/langchain) (обновление 03.07.2026) даёт 16 млн $ ARR
   и 1,3 млрд $ оценки — это оценка агрегатора, не раскрытие компании.
-- CrewAI: 18 млн $ всего (inception от boldstart + Series A от Insight Partners, октябрь 2024) —
+  - CrewAI: 18 млн $ всего (inception от boldstart + Series A от Insight Partners, октябрь 2024) —
   [Insight Partners](https://www.insightpartners.com/ideas/crewai-scaleup-ai-story/),
   [pulse2](https://pulse2.com/crewai-multi-agent-platform-raises-18-million-series-a/). Выручка не раскрыта;
   оценка агрегатора Latka — 3,2 млн $ ARR (слабый источник, компания не подтверждала).
-- LlamaIndex: 19 млн $ Series A, объявлено 04.03.2025 (Norwest, Greylock —
+  - LlamaIndex: 19 млн $ Series A, объявлено 04.03.2025 (Norwest, Greylock —
   [PRNewswire](https://www.prnewswire.com/news-releases/llamaindex-secures-19-million-series-a-to-power-enterprise-grade-knowledge-agents-302390936.html)),
   затем миноритарные инвестиции Databricks и KPMG ([ChannelE2E](https://www.channele2e.com/news/llamaindex-secures-strategic-investments-from-databricks-and-kpmg-to-advance-enterprise-ai-workflows), дату в источнике не зафиксировал).
-- Доля внедрений: LangGraph — около 38% производственных мультиагентных внедрений, собственная
+  - Доля внедрений: LangGraph — около 38% производственных мультиагентных внедрений, собственная
   оркестрация — 28%, CrewAI — 12%, AutoGen — 9%, OpenAI Swarm — 2%
   ([Presenc AI, обновление май 2026](https://presenc.ai/research/multi-agent-orchestration-frameworks-2026)).
   Методика слабая: агрегация звёзд GitHub плюс собственная телеметрия по 25+ клиентам.
-
-**pricing:** LangSmith — Developer 0 $ (до 5 тыс. трассировок/мес), Plus 39 $ за место в месяц
-(до 10 тыс. трассировок), Enterprise по договору; сверх лимита — 1,50 $ за LCU (вычисление) и 1,00 $
-за LSU (трассировки и хранение); стартапам до 10 тыс. $ кредитов
-([langchain.com/pricing](https://www.langchain.com/pricing), проверено 08.08.2026). CrewAI и
-LlamaCloud — публичного прайса для enterprise нет.
-
-**moat:** экосистема интеграций и учебных материалов, привязка трассировки к своему графу, вход
-через открытый код (дистрибуция бесплатна), корпоративные договоры с self-hosted.
-
-**capital:** низкая на входе (открытый код пишется малой командой), но удержание требует денег на
-поддержку версий и на облако; LangChain привлёк 260 млн $ всего (Tracxn, 2026).
-
-**time_to_revenue:** от полугода до года: сначала аудитория открытого кода, потом платное облако.
-
-**foreign_dependency:** модели (OpenAI, Anthropic, Google), облако для контрольной плоскости,
-Stripe для оплаты. Из России прямой доступ к трём главным поставщикам моделей закрыт
-(см. `research/07-stek-i-pravo.md`), значит либо посредник вроде VseGPT, либо GigaChat/Yandex.
-
-**ru_analog:** GigaChain — SDK и агентная платформа для GigaChat, автор заявляет 77 тыс.+ загрузок
-в месяц и топ-1,5% PyPI ([rai220.github.io](https://rai220.github.io/), самозаявление);
-Just AI Agent Platform ([just-ai.com](https://just-ai.com/agent-platform)); MWS AI Agents Platform
-([mts.ai](https://mts.ai/product/ai-agents-platform/)); Cloud.ru Evolution AI Agents
-([cloud.ru](https://cloud.ru/products/evolution-ai-agents)); Yandex AI Studio с Agent Atelier
-([aistudio.yandex.ru](https://aistudio.yandex.ru/ru/agent-atelier)).
-
-**ru_fit:** ломается монетизация «открытый код → облако»: платить за облако мелкими подписками с
-карт из РФ можно только через российский эквайринг, а корпоративный покупатель просит on-prem, где
-подписка за место превращается в лицензию. Заменяется российским: модели — GigaChat/YandexGPT/Cotype,
-оплата — ЮKassa и СБП, хостинг — Cloud.ru/Selectel. Не заменяется ничем дистрибуция через
-англоязычный GitHub-трафик: российский фреймворк её не получит.
-
-**kill_switch:** поставщик моделей отдаёт оркестрацию бесплатно в составе API, а гиперскейлер — в
-составе облака. Уже произошло: Microsoft свела AutoGen и Semantic Kernel в Agent Framework 1.0
-(3 апреля 2026), AWS продаёт AgentCore по компонентам, Cloudflare — Agents SDK и песочницы.
-
-**failures:** AutoGen как самостоятельный проект закрыт — поглощён Microsoft Agent Framework,
-GA 03.04.2026 ([Microsoft Learn](https://learn.microsoft.com/en-us/agent-framework/overview/),
-[AgentMarketCap 13.04.2026](https://agentmarketcap.ai/blog/2026/04/13/microsoft-autogen-maintenance-mode-agent-framework-sunset-2026)).
-OpenAI Swarm так и остался экспериментом (около 2% внедрений, Presenc AI, май 2026).
+- **pricing**:
+  LangSmith — Developer 0 $ (до 5 тыс. трассировок/мес), Plus 39 $ за место в месяц
+  (до 10 тыс. трассировок), Enterprise по договору; сверх лимита — 1,50 $ за LCU (вычисление) и 1,00 $
+  за LSU (трассировки и хранение); стартапам до 10 тыс. $ кредитов
+  ([langchain.com/pricing](https://www.langchain.com/pricing), проверено 08.08.2026). CrewAI и
+  LlamaCloud — публичного прайса для enterprise нет.
+- **moat**:
+  экосистема интеграций и учебных материалов, привязка трассировки к своему графу, вход
+  через открытый код (дистрибуция бесплатна), корпоративные договоры с self-hosted.
+- **capital**:
+  низкая на входе (открытый код пишется малой командой), но удержание требует денег на
+  поддержку версий и на облако; LangChain привлёк 260 млн $ всего (Tracxn, 2026).
+- **time_to_revenue**: от полугода до года: сначала аудитория открытого кода, потом платное облако.
+- **foreign_dependency**:
+  модели (OpenAI, Anthropic, Google), облако для контрольной плоскости,
+  Stripe для оплаты. Из России прямой доступ к трём главным поставщикам моделей закрыт
+  (см. `research/07-stek-i-pravo.md`), значит либо посредник вроде VseGPT, либо GigaChat/Yandex.
+- **ru_analog**:
+  GigaChain — SDK и агентная платформа для GigaChat, автор заявляет 77 тыс.+ загрузок
+  в месяц и топ-1,5% PyPI ([rai220.github.io](https://rai220.github.io/), самозаявление);
+  Just AI Agent Platform ([just-ai.com](https://just-ai.com/agent-platform)); MWS AI Agents Platform
+  ([mts.ai](https://mts.ai/product/ai-agents-platform/)); Cloud.ru Evolution AI Agents
+  ([cloud.ru](https://cloud.ru/products/evolution-ai-agents)); Yandex AI Studio с Agent Atelier
+  ([aistudio.yandex.ru](https://aistudio.yandex.ru/ru/agent-atelier)).
+- **ru_fit**:
+  ломается монетизация «открытый код → облако»: платить за облако мелкими подписками с
+  карт из РФ можно только через российский эквайринг, а корпоративный покупатель просит on-prem, где
+  подписка за место превращается в лицензию. Заменяется российским: модели — GigaChat/YandexGPT/Cotype,
+  оплата — ЮKassa и СБП, хостинг — Cloud.ru/Selectel. Не заменяется ничем дистрибуция через
+  англоязычный GitHub-трафик: российский фреймворк её не получит.
+- **kill_switch**:
+  поставщик моделей отдаёт оркестрацию бесплатно в составе API, а гиперскейлер — в
+  составе облака. Уже произошло: Microsoft свела AutoGen и Semantic Kernel в Agent Framework 1.0
+  (3 апреля 2026), AWS продаёт AgentCore по компонентам, Cloudflare — Agents SDK и песочницы.
+- **failures**:
+  AutoGen как самостоятельный проект закрыт — поглощён Microsoft Agent Framework,
+  GA 03.04.2026 ([Microsoft Learn](https://learn.microsoft.com/en-us/agent-framework/overview/),
+  [AgentMarketCap 13.04.2026](https://agentmarketcap.ai/blog/2026/04/13/microsoft-autogen-maintenance-mode-agent-framework-sunset-2026)).
+  OpenAI Swarm так и остался экспериментом (около 2% внедрений, Presenc AI, май 2026).
+- **proverka**:
+  - **уточнено:** «OpenAI Swarm так и остался экспериментом — около 2% производственных внедрений (Presenc AI, май 2026), строка в таблице провалов»
+  Верное значение: ~2% — оценка Presenc AI за I квартал 2026, а не замер на май 2026. Дата «май 2026» в двух местах файла (карточка C12-orchestration-framework-cloud и таблица провалов) относится к правке страницы. Дополнительно: та же таблица противоречит соседней строке таблицы провалов о закрытии AutoGen 03.04.2026 — источник считает AutoGen работающим и вторым по доле после custom-оркестрации.
+  Чем проверено: Та же таблица источника: «OpenAI Swarm ~2%» под заголовком «Estimated production deployments (Q1 2026)»; рядом «Microsoft AutoGen ~9%» как действующий фреймворк, дата правки страницы — май 2026, упоминания Microsoft Agent Framework нет.
+- **ru_verdict**: частично
 
 ---
 
 ## C12-durable-execution — Долговечное исполнение для агентов
 
-**name:** Долговечное исполнение для агентов
-
-**one_liner:** платформа журналирует каждый шаг агента, поэтому длинная задача продолжается с
-места обрыва, а не начинается заново; платит инженерная команда за действия и хранение.
-
-**family:** 12
-
-**buyer:** разработчик, платформенная команда среднего и крупного бизнеса.
-
-**players:**
-- temporal.io — Temporal Cloud, эталон категории
-- inngest.com — Inngest, событийные долговечные шаги
-- restate.dev — Restate, «workflows-as-code», отдельно позиционирует «agent runtime»
-- cloudflare.com — Workflows и Durable Objects как встроенная альтернатива
-
-**money:**
-- Temporal: 300 млн $ Series D при оценке 5 млрд $, 17.02.2026, лид a16z
+- **id**: C12-durable-execution
+- **name**: Долговечное исполнение для агентов
+- **one_liner**:
+  платформа журналирует каждый шаг агента, поэтому длинная задача продолжается с
+  места обрыва, а не начинается заново; платит инженерная команда за действия и хранение.
+- **family**: 12
+- **buyer**: разработчик, платформенная команда среднего и крупного бизнеса.
+- **players**:
+  - temporal.io — Temporal Cloud, эталон категории
+  - inngest.com — Inngest, событийные долговечные шаги
+  - restate.dev — Restate, «workflows-as-code», отдельно позиционирует «agent runtime»
+  - cloudflare.com — Workflows и Durable Objects как встроенная альтернатива
+- **money**:
+  - Temporal: 300 млн $ Series D при оценке 5 млрд $, 17.02.2026, лид a16z
   ([Reuters 17.02.2026](https://www.reuters.com/business/media-telecom/temporal-raises-300-million-andreessen-led-round-amid-ai-agent-boom-2026-02-17/),
   [temporal.io](https://temporal.io/blog/temporal-raises-usd300m-series-d-at-a-usd5b-valuation)).
   Рост выручки более 380% год к году, недельная активность +350%, установки +500% — данные компании
   в пересказе [GeekWire, 2026](https://www.geekwire.com/2026/temporal-raises-300m-hits-5b-valuation-as-seattle-infrastructure-startup-rides-ai-wave/).
   Предыдущая метка — 2,5 млрд $ на вторичной сделке в октябре с участием GIC (Reuters).
   Абсолютной выручки компания не раскрывает.
-- Inngest: около 34 млн $ всего, последний раунд 20,5 млн $ (май 2025); в феврале 2026 выпустил
+  - Inngest: около 34 млн $ всего, последний раунд 20,5 млн $ (май 2025); в феврале 2026 выпустил
   Temporal-совместимые рабочие процессы. Restate: около 7 млн $ seed, коммерческий запуск в марте
   2026. Оба — по сводке [Presenc AI, май 2026](https://presenc.ai/research/ai-agent-infrastructure-startups-2026)
   (вторичный источник, данные собраны 15.05.2026 из Crunchbase и PitchBook).
 
-**pricing (проверено 08.08.2026 по [temporal.io/pricing.md](https://temporal.io/pricing.md)):**
-1000 $ кредитов на 90 дней; Essentials от 100 $/мес (1 млн действий, 1 ГБ активного хранения),
-плата за план = max(100 $, 5% расхода); Business от 500 $/мес (2,5 млн действий), max(500 $, 10%),
-SCIM +500 $/мес; сверх лимита — 50 $ за первый миллион действий с понижением до 25 $ выше 100 млн;
-хранение 0,042 $ за ГБ-час активное и 0,00105 $ за ГБ-час архивное. Inngest — Hobby 0 $ (50 тыс.
-исполнений), Pro от 99 $/мес (1 млн исполнений)
-([inngest.com/pricing](https://www.inngest.com/pricing), 08.08.2026).
-
-**moat:** переписывание бизнес-логики под SDK создаёт высокую цену переезда; операционная сложность
-своего кластера (Temporal самохостится, но обслуживать дорого); доверие для регулируемых отраслей.
-
-**capital:** высокая для провайдера: распределённый журнал с гарантиями — это годы работы команды и
-дежурства 24/7. Реалистичный вход одиночки — не свой движок, а сопровождение чужого open source.
-
-**time_to_revenue:** для новой платформы — годы; для практики «внедрим Temporal и будем поддерживать» —
-недели.
-
-**foreign_dependency:** SDK и облако зарубежные, но код открыт (MIT/Apache) и разворачивается в РФ;
-зависимость сводится к обновлениям репозитория и к запрету на оплату Temporal Cloud из РФ.
-
-**ru_analog:** продукта нет. Роль долговечного слоя де-факто играют BPM-движки: ELMA365
-([elma365.com](https://elma365.com/ru/)), BPMSoft ([bpmsoft.ru](https://bpmsoft.ru/)),
-SimpleOne ([simpleone.ru](https://simpleone.ru/)) — у них есть состояние процесса, повторы и
-согласования, но нет семантики «повтор шага без побочных эффектов». Плюс самостоятельный хостинг
-Temporal/Restate внутри контура.
-
-**ru_fit:** ломается оплата облака и поддержка вендора; заменяется самостоятельным развёртыванием на
-Cloud.ru/Selectel и BPM-движками. Не заменяется ничем гарантия вендора и SLA — это и есть свободная
-ниша: «долговечное исполнение как услуга в российском контуре» никем не продаётся.
-
-**kill_switch:** гиперскейлер отдаёт то же бесплатно в составе платформы — Cloudflare после
-переработки контрольной плоскости Workflows держит до 50 тыс. одновременных исполнений
-([пересказ анонсов Agents Week 2026 на Хабре](https://habr.com/ru/companies/otus/news/1026116/));
-у AWS есть Step Functions и AgentCore. Второй сценарий: фреймворки добавляют контрольные точки, и
-«достаточно хорошо» побеждает.
-
-**failures:** громких закрытий в подкатегории не нашёл — это молодой и хорошо профинансированный
-слой. Обратная сторона: Inngest и Restate живут в тени пятимиллиардной оценки Temporal, и Inngest
-пришлось выпускать совместимость с чужим API.
+  **pricing (проверено 08.08.2026 по [temporal.io/pricing.md](https://temporal.io/pricing.md)):**
+  1000 $ кредитов на 90 дней; Essentials от 100 $/мес (1 млн действий, 1 ГБ активного хранения),
+  плата за план = max(100 $, 5% расхода); Business от 500 $/мес (2,5 млн действий), max(500 $, 10%),
+  SCIM +500 $/мес; сверх лимита — 50 $ за первый миллион действий с понижением до 25 $ выше 100 млн;
+  хранение 0,042 $ за ГБ-час активное и 0,00105 $ за ГБ-час архивное. Inngest — Hobby 0 $ (50 тыс.
+  исполнений), Pro от 99 $/мес (1 млн исполнений)
+  ([inngest.com/pricing](https://www.inngest.com/pricing), 08.08.2026).
+- **moat**:
+  переписывание бизнес-логики под SDK создаёт высокую цену переезда; операционная сложность
+  своего кластера (Temporal самохостится, но обслуживать дорого); доверие для регулируемых отраслей.
+- **capital**:
+  высокая для провайдера: распределённый журнал с гарантиями — это годы работы команды и
+  дежурства 24/7. Реалистичный вход одиночки — не свой движок, а сопровождение чужого open source.
+- **time_to_revenue**:
+  для новой платформы — годы; для практики «внедрим Temporal и будем поддерживать» —
+  недели.
+- **foreign_dependency**:
+  SDK и облако зарубежные, но код открыт (MIT/Apache) и разворачивается в РФ;
+  зависимость сводится к обновлениям репозитория и к запрету на оплату Temporal Cloud из РФ.
+- **ru_analog**:
+  продукта нет. Роль долговечного слоя де-факто играют BPM-движки: ELMA365
+  ([elma365.com](https://elma365.com/ru/)), BPMSoft ([bpmsoft.ru](https://bpmsoft.ru/)),
+  SimpleOne ([simpleone.ru](https://simpleone.ru/)) — у них есть состояние процесса, повторы и
+  согласования, но нет семантики «повтор шага без побочных эффектов». Плюс самостоятельный хостинг
+  Temporal/Restate внутри контура.
+- **ru_fit**:
+  ломается оплата облака и поддержка вендора; заменяется самостоятельным развёртыванием на
+  Cloud.ru/Selectel и BPM-движками. Не заменяется ничем гарантия вендора и SLA — это и есть свободная
+  ниша: «долговечное исполнение как услуга в российском контуре» никем не продаётся.
+- **kill_switch**:
+  гиперскейлер отдаёт то же бесплатно в составе платформы — Cloudflare после
+  переработки контрольной плоскости Workflows держит до 50 тыс. одновременных исполнений
+  ([пересказ анонсов Agents Week 2026 на Хабре](https://habr.com/ru/companies/otus/news/1026116/));
+  у AWS есть Step Functions и AgentCore. Второй сценарий: фреймворки добавляют контрольные точки, и
+  «достаточно хорошо» побеждает.
+- **failures**:
+  громких закрытий в подкатегории не нашёл — это молодой и хорошо профинансированный
+  слой. Обратная сторона: Inngest и Restate живут в тени пятимиллиардной оценки Temporal, и Inngest
+  пришлось выпускать совместимость с чужим API.
+- **proverka**:
+  - **вердикт по России изменён: было «свободно» → стало «частично».**
+  - частично
+  Найдено при проверке: Yandex Cloud Workflows в составе Yandex Serverless Integrations — управляемая оркестрация шагов по декларативной YAML-спецификации: объект execution хранит всю информацию о конкретном запуске (yandex.cloud/docs/serverless-integrations/concepts/workflows/execution), есть интеграционные и управляющие шаги, поддержаны Yandex Tracker, Cloud Postbox и Foundation Models, то есть вызовы моделей идут штатным шагом; выпущен визуальный low-code конструктор (habr.com/ru/companies/yandex_cloud_and_infra/news/890096/), сервис на стадии Preview, анонс вместе с Serverless Integrations — CNews 25.09.2024; рядом EventRouter для запусков по событию. Есть и разбор ограничений от практиков: habr.com/ru/companies/reksoft/articles/981890 «Yandex Cloud Workflows: $global под Foreach». Оплата в рублях, контур РФ, вендорская поддержка. Утверждение карточки «долговечное исполнение как услуга в российском контуре никем не продаётся» неверно; ru_analog «продукта нет, роль играют BPM-движки» тоже неполон — управляемый сервис оркестрации шагов у Яндекса есть. Свободной остаётся узкая часть: детерминированный повтор кода и идемпотентность шага в стиле Temporal, а не сам факт услуги.
+- **ru_verdict**: частично
 
 ---
 
 ## C12-agent-job-scheduler — Очередь и планировщик агентных задач
 
-**name:** Очередь и планировщик агентных задач
-
-**one_liner:** разработчик платит за то, чтобы агентные запуски стояли в очереди, шли по расписанию,
-повторялись при сбое и не выедали лимиты — без своего Celery и Kubernetes.
-
-**family:** 12
-
-**buyer:** разработчик, продуктовая команда на TypeScript/Python, малый и средний бизнес.
-
-**players:**
-- trigger.dev — Trigger.dev, фоновые задачи и агенты на TypeScript
-- inngest.com — Inngest, событийная модель плюс AgentKit
-- hatchet.run — Hatchet, движок оркестрации задач
-- windmill.dev — Windmill, скрипты и рабочие процессы с самохостингом
-
-**money:** Trigger.dev — 16 млн $ Series A, 17.12.2025, лид Standard Capital, участие Y Combinator и
-Михаэля Гринича (основатель WorkOS); компания заявляет «сотни миллионов агентов в месяц» и более
-30 тыс. разработчиков ([trigger.dev/blog/series-a](https://trigger.dev/blog/series-a), самозаявление);
-15,9 тыс. звёзд GitHub (счётчик на сайте, 08.08.2026). Ранее — 3 млн $ seed
-([trigger.dev](https://trigger.dev/blog/3m-dollar-seed-round)). Выручку не раскрывает.
-По Hatchet и Windmill проверяемых цифр выручки не нашёл.
-
-**pricing:** Trigger.dev — Free 0 $ с 5 $ кредитов в месяц и 20 одновременными запусками; Hobby
-10 $/мес с 10 $ кредитов и 50 запусками; далее платные тарифы
-([trigger.dev/pricing](https://trigger.dev/pricing), 08.08.2026). Пооперационная тарификация по
-вторичному источнику: 0,01 $ за запуск агента, 0,005 $ за пустой опрос, 0,007 $ за веб-поиск,
-около 0,067 $ за час вычислений в песочнице, наценка 1,1× на вызовы моделей без своего ключа
-([automationatlas.io](https://automationatlas.io/tools/trigger-dev), требует проверки в консоли).
-
-**moat:** SDK внутри кода клиента, наблюдаемость запусков, бесплатный самохостинг как приманка;
-слабый ров — переписать на очередь и cron может любой инженер.
-
-**capital:** низкая-средняя: рабочий продукт делает команда из 3–5 человек, но дежурства обязательны.
-
-**time_to_revenue:** 3–9 месяцев на самообслуживании с бесплатным уровнем.
-
-**foreign_dependency:** оплата и облако; модели через собственный ключ клиента.
-
-**ru_analog:** отдельного продукта нет. Ближайшее — Cloud.ru AI Workflows (low-code конструктор
-цепочек, публичное тестирование, анонс на GoCloud 09.04.2026,
-[tproger](https://tproger.ru/articles/agenty-v-pomoshh-chto-cloud-ru-pokazal-na-gocloud-2026)),
-плюс самостоятельные Airflow/Celery/Temporal в контуре.
-
-**ru_fit:** ломается платная подписка из РФ и сама бизнес-модель «дев-тул за 10 $»: российский
-разработчик так не покупает, а корпорация требует поставку в контур. Заменяется своим развёртыванием.
-Свободно: планировщик агентных задач с рублёвой оплатой и поставкой on-prem никем не занят.
-
-**kill_switch:** очередь и расписание становятся штатной функцией фреймворка или облака (Cloudflare
-Workflows, Yandex Cloud Functions), и категория растворяется в платформе.
-
-**failures:** тихая смерть категории «просто cron для LLM» — конкретных банкротств не нашёл;
-базовая ставка по обёрткам из `prompt/landscape-2026.md`: 80–95% проваливаются, 60–70% не
-зарабатывают ничего.
+- **id**: C12-agent-job-scheduler
+- **name**: Очередь и планировщик агентных задач
+- **one_liner**:
+  разработчик платит за то, чтобы агентные запуски стояли в очереди, шли по расписанию,
+  повторялись при сбое и не выедали лимиты — без своего Celery и Kubernetes.
+- **family**: 12
+- **buyer**: разработчик, продуктовая команда на TypeScript/Python, малый и средний бизнес.
+- **players**:
+  - trigger.dev — Trigger.dev, фоновые задачи и агенты на TypeScript
+  - inngest.com — Inngest, событийная модель плюс AgentKit
+  - hatchet.run — Hatchet, движок оркестрации задач
+  - windmill.dev — Windmill, скрипты и рабочие процессы с самохостингом
+- **money**:
+  Trigger.dev — 16 млн $ Series A, 17.12.2025, лид Standard Capital, участие Y Combinator и
+  Михаэля Гринича (основатель WorkOS); компания заявляет «сотни миллионов агентов в месяц» и более
+  30 тыс. разработчиков ([trigger.dev/blog/series-a](https://trigger.dev/blog/series-a), самозаявление);
+  15,9 тыс. звёзд GitHub (счётчик на сайте, 08.08.2026). Ранее — 3 млн $ seed
+  ([trigger.dev](https://trigger.dev/blog/3m-dollar-seed-round)). Выручку не раскрывает.
+  По Hatchet и Windmill проверяемых цифр выручки не нашёл.
+- **pricing**:
+  Trigger.dev — Free 0 $ с 5 $ кредитов в месяц и 20 одновременными запусками; Hobby
+  10 $/мес с 10 $ кредитов и 50 запусками; далее платные тарифы
+  ([trigger.dev/pricing](https://trigger.dev/pricing), 08.08.2026). Пооперационная тарификация по
+  вторичному источнику: 0,01 $ за запуск агента, 0,005 $ за пустой опрос, 0,007 $ за веб-поиск,
+  около 0,067 $ за час вычислений в песочнице, наценка 1,1× на вызовы моделей без своего ключа
+  ([automationatlas.io](https://automationatlas.io/tools/trigger-dev), требует проверки в консоли).
+- **moat**:
+  SDK внутри кода клиента, наблюдаемость запусков, бесплатный самохостинг как приманка;
+  слабый ров — переписать на очередь и cron может любой инженер.
+- **capital**: низкая-средняя: рабочий продукт делает команда из 3–5 человек, но дежурства обязательны.
+- **time_to_revenue**: 3–9 месяцев на самообслуживании с бесплатным уровнем.
+- **foreign_dependency**: оплата и облако; модели через собственный ключ клиента.
+- **ru_analog**:
+  отдельного продукта нет. Ближайшее — Cloud.ru AI Workflows (low-code конструктор
+  цепочек, публичное тестирование, анонс на GoCloud 09.04.2026,
+  [tproger](https://tproger.ru/articles/agenty-v-pomoshh-chto-cloud-ru-pokazal-na-gocloud-2026)),
+  плюс самостоятельные Airflow/Celery/Temporal в контуре.
+- **ru_fit**:
+  ломается платная подписка из РФ и сама бизнес-модель «дев-тул за 10 $»: российский
+  разработчик так не покупает, а корпорация требует поставку в контур. Заменяется своим развёртыванием.
+  Свободно: планировщик агентных задач с рублёвой оплатой и поставкой on-prem никем не занят.
+- **kill_switch**:
+  очередь и расписание становятся штатной функцией фреймворка или облака (Cloudflare
+  Workflows, Yandex Cloud Functions), и категория растворяется в платформе.
+- **failures**:
+  тихая смерть категории «просто cron для LLM» — конкретных банкротств не нашёл;
+  базовая ставка по обёрткам из `prompt/landscape-2026.md`: 80–95% проваливаются, 60–70% не
+  зарабатывают ничего.
+- **proverka**:
+  - **вердикт по России изменён: было «свободно» → стало «частично».**
+  - частично
+  Найдено при проверке: Cloud.ru Evolution Managed Airflow — управляемый Airflow как услуга: страница получена curl 08.08.2026 (заголовок «Evolution Managed Airflow – оркестрация ETL/ELT», HTTP 200, 351 358 байт, есть «Калькулятор цен», «Тарифы», Free Tier). Это DAG, расписания, повторы при сбое и лимиты параллельности без своего Kubernetes — ровно то, что обещает one_liner карточки («без своего Celery и Kubernetes»), причём в рублях и в российском контуре. Плюс Yandex Workflows и EventRouter как событийный планировщик запусков (см. C12-durable-execution). В ru_analog карточки перечислены только Cloud.ru AI Workflows и «самостоятельные Airflow/Celery/Temporal в контуре» — то есть именно управляемый вариант, снимающий главную боль, пропущен. Не занята более узкая рамка: квоты и лимиты параллельности под агентные запуски с учётом стоимости токенов, а не под ETL.
+- **ru_verdict**: частично
 
 ---
 
 ## C12-code-sandbox-api — Песочница для кода агента как API
 
-**name:** Песочница для кода агента как API
-
-**one_liner:** агент вызывает API и получает изолированную машину с шеллом, файловой системой и
-сетью на секунды или часы; платят за vCPU-часы и гигабайт-часы.
-
-**family:** 12
-
-**buyer:** разработчик ИИ-продукта, лаборатория, корпорация с внутренними агентами.
-
-**players:**
-- e2b.dev — E2B, де-факто стандарт для исполнения недоверенного кода агентов
-- daytona.io — Daytona, персистентные окружения и computer use
-- modal.com — Modal Sandboxes, плюс GPU
-- vercel.com, northflank.com, cloudflare.com — песочницы как часть платформы
-- langchain.com — Sandboxes появились в продуктовой линейке LangSmith (проверено 08.08.2026)
-
-**money:**
-- E2B: 21 млн $ Series A, 28.07.2025, лид Insight Partners, всего 32 млн $; заявляет, что 88%
+- **id**: C12-code-sandbox-api
+- **name**: Песочница для кода агента как API
+- **one_liner**:
+  агент вызывает API и получает изолированную машину с шеллом, файловой системой и
+  сетью на секунды или часы; платят за vCPU-часы и гигабайт-часы.
+- **family**: 12
+- **buyer**: разработчик ИИ-продукта, лаборатория, корпорация с внутренними агентами.
+- **players**:
+  - e2b.dev — E2B, де-факто стандарт для исполнения недоверенного кода агентов
+  - daytona.io — Daytona, персистентные окружения и computer use
+  - modal.com — Modal Sandboxes, плюс GPU
+  - vercel.com, northflank.com, cloudflare.com — песочницы как часть платформы
+  - langchain.com — Sandboxes появились в продуктовой линейке LangSmith (проверено 08.08.2026)
+- **money**:
+  - E2B: 21 млн $ Series A, 28.07.2025, лид Insight Partners, всего 32 млн $; заявляет, что 88%
   компаний Fortune 100 зарегистрированы на платформе и запущены «сотни миллионов» песочниц более чем
   в половине Fortune 500 ([e2b.dev/blog/series-a](https://e2b.dev/blog/series-a) — самозаявление,
   третьей стороной не подтверждено). Клиенты по кейсам: Perplexity, Manus, Hugging Face, LMArena,
   Groq, Lindy, Gumloop.
-- Daytona: 24 млн $ Series A, 05.02.2026, лид FirstMark Capital
+  - Daytona: 24 млн $ Series A, 05.02.2026, лид FirstMark Capital
   ([PRNewswire 05.02.2026](https://www.prnewswire.com/news-releases/daytona-raises-24m-series-a-to-give-every-agent-a-computer-302680740.html));
   выход на 1 млн $ годового темпа менее чем за 3 месяца — оценка
   [Ry Walker Research](https://rywalker.com/research/ai-agent-sandboxes) (вторичный источник).
-- Modal: около 300 млн $ годовой выручки и Series C при оценке 4,65 млрд $
+  - Modal: около 300 млн $ годовой выручки и Series C при оценке 4,65 млрд $
   (`prompt/landscape-2026.md`; сумма раунда 355 млн $ — по Ry Walker Research).
-
-**pricing:** E2B — Hobby бесплатно с разовыми 100 $ кредитов, сессия до 1 часа, до 20 одновременных
-песочниц; Pro 150 $/мес, сессия до 24 часов, до 100 песочниц с возможностью докупить до 1100
-([e2b.dev/pricing](https://e2b.dev/pricing), 08.08.2026). Потребление у E2B и Daytona —
-0,0504 $ за vCPU-час и 0,0162 $ за ГиБ-час с посекундным учётом (ставки с сайтов вендоров,
-сверка [LogRocket, апрель–июнь 2026](https://blog.logrocket.com/comparing-ai-agent-sandbox-platforms-e2b-modal-daytona-and-more/)).
-Vercel Sandbox — та же ставка за vCPU-час, Pro 150 $/мес
-([StartupHub, 2026](https://www.startuphub.ai/ai-news/artificial-intelligence/2026/daytona-vs-e2b-vs-modal-vs-vercel-sandbox-2026)).
-AWS AgentCore Runtime на microVM — 0,0895 $ за vCPU-час и 0,00945 $ за ГБ-час, при этом ожидание
-ввода-вывода не тарифицируется
-([официальный прайс AWS](https://aws.amazon.com/bedrock/agentcore/pricing/), 08.08.2026).
-
-**moat:** время холодного старта (Daytona заявляет менее 90 мс), безопасность изоляции, готовые
-интеграции с фреймворками, репутация после аудитов. Ров узкий: цена почти одинаковая у всех.
-
-**capital:** высокая — это инфраструктурный бизнес с арендой железа, а не обёртка. Минимум:
-команда с опытом microVM и Kubernetes плюс деньги на резерв мощности.
-
-**time_to_revenue:** для нового провайдера — год и больше; перепродажа чужой песочницы с наценкой —
-недели.
-
-**foreign_dependency:** железо и облака, платежи; отдельный риск — открытый код как канал доверия:
-Daytona с июня 2026 закрыла исходный код продакшн-кодовой базы, сославшись на безопасность
-([Northflank, 12.06.2026](https://northflank.com/blog/daytona-vs-e2b-ai-code-execution-sandboxes)).
-
-**ru_analog:** песочницы как API с публичным прайсом не нашёл. Функционально близко: VK AI Space —
-изолированная виртуальная машина на каждого агента с прописанными политиками, представлена в конце
-апреля 2026, поставка on-prem / VK Cloud / программно-аппаратный комплекс по подписке
-([обзор CNews](https://corp.cnews.ru/reviews/tehnologii_iskusstvennogo_intellekta_1/cases/ii_pod_nadzorom_kak_izolirovannyj));
-Cloud.ru Evolution Container Apps и Evolution Container Security с ИИ-агентом для генерации политик
-(GoCloud 09.04.2026); утилита `sbx` для локальной изоляции агента в microVM с MITM-прокси для
-секретов ([разбор на Хабре](https://habr.com/ru/amp/publications/1043680/)).
-
-**ru_fit:** ломается ровно то, что стоит дорого — дешёвая эластичная мощность: аренда H100 в РФ около
-246 тыс. ₽/мес (`research/07-stek-i-pravo.md`), и посекундная тарификация песочниц при такой базе
-даёт выше цену, чем у зарубежных. Заменяется российскими облаками с 152-ФЗ и ФСТЭК. Свободно:
-«E2B по-русски» — API-песочница с рублёвой оплатой и аттестованным контуром.
-
-**kill_switch:** гиперскейлер и облако разработки включают песочницу в тариф (Cloudflare Sandboxes
-вышли в GA на Agents Week 2026; LangChain продаёт свои), а публичная демонстрация утечки из
-песочницы обнуляет доверие к независимому провайдеру.
-
-**failures:** прямых закрытий не нашёл; вместо них — уход в закрытый код у Daytona (июнь 2026) и
-первый публичный стресс-тест безопасности категории с показанной эксфильтрацией через DNS
-(Ry Walker Research, 2026).
+- **pricing**:
+  E2B — Hobby бесплатно с разовыми 100 $ кредитов, сессия до 1 часа, до 20 одновременных
+  песочниц; Pro 150 $/мес, сессия до 24 часов, до 100 песочниц с возможностью докупить до 1100
+  ([e2b.dev/pricing](https://e2b.dev/pricing), 08.08.2026). Потребление у E2B и Daytona —
+  0,0504 $ за vCPU-час и 0,0162 $ за ГиБ-час с посекундным учётом (ставки с сайтов вендоров,
+  сверка [LogRocket, апрель–июнь 2026](https://blog.logrocket.com/comparing-ai-agent-sandbox-platforms-e2b-modal-daytona-and-more/)).
+  Vercel Sandbox — та же ставка за vCPU-час, Pro 150 $/мес
+  ([StartupHub, 2026](https://www.startuphub.ai/ai-news/artificial-intelligence/2026/daytona-vs-e2b-vs-modal-vs-vercel-sandbox-2026)).
+  AWS AgentCore Runtime на microVM — 0,0895 $ за vCPU-час и 0,00945 $ за ГБ-час, при этом ожидание
+  ввода-вывода не тарифицируется
+  ([официальный прайс AWS](https://aws.amazon.com/bedrock/agentcore/pricing/), 08.08.2026).
+- **moat**:
+  время холодного старта (Daytona заявляет менее 90 мс), безопасность изоляции, готовые
+  интеграции с фреймворками, репутация после аудитов. Ров узкий: цена почти одинаковая у всех.
+- **capital**:
+  высокая — это инфраструктурный бизнес с арендой железа, а не обёртка. Минимум:
+  команда с опытом microVM и Kubernetes плюс деньги на резерв мощности.
+- **time_to_revenue**:
+  для нового провайдера — год и больше; перепродажа чужой песочницы с наценкой —
+  недели.
+- **foreign_dependency**:
+  железо и облака, платежи; отдельный риск — открытый код как канал доверия:
+  Daytona с июня 2026 закрыла исходный код продакшн-кодовой базы, сославшись на безопасность
+  ([Northflank, 12.06.2026](https://northflank.com/blog/daytona-vs-e2b-ai-code-execution-sandboxes)).
+- **ru_analog**:
+  песочницы как API с публичным прайсом не нашёл. Функционально близко: VK AI Space —
+  изолированная виртуальная машина на каждого агента с прописанными политиками, представлена в конце
+  апреля 2026, поставка on-prem / VK Cloud / программно-аппаратный комплекс по подписке
+  ([обзор CNews](https://corp.cnews.ru/reviews/tehnologii_iskusstvennogo_intellekta_1/cases/ii_pod_nadzorom_kak_izolirovannyj));
+  Cloud.ru Evolution Container Apps и Evolution Container Security с ИИ-агентом для генерации политик
+  (GoCloud 09.04.2026); утилита `sbx` для локальной изоляции агента в microVM с MITM-прокси для
+  секретов ([разбор на Хабре](https://habr.com/ru/amp/publications/1043680/)).
+- **ru_fit**:
+  ломается ровно то, что стоит дорого — дешёвая эластичная мощность: аренда H100 в РФ около
+  246 тыс. ₽/мес (`research/07-stek-i-pravo.md`), и посекундная тарификация песочниц при такой базе
+  даёт выше цену, чем у зарубежных. Заменяется российскими облаками с 152-ФЗ и ФСТЭК. Свободно:
+  «E2B по-русски» — API-песочница с рублёвой оплатой и аттестованным контуром.
+- **kill_switch**:
+  гиперскейлер и облако разработки включают песочницу в тариф (Cloudflare Sandboxes
+  вышли в GA на Agents Week 2026; LangChain продаёт свои), а публичная демонстрация утечки из
+  песочницы обнуляет доверие к независимому провайдеру.
+- **failures**:
+  прямых закрытий не нашёл; вместо них — уход в закрытый код у Daytona (июнь 2026) и
+  первый публичный стресс-тест безопасности категории с показанной эксфильтрацией через DNS
+  (Ry Walker Research, 2026).
+- **ru_verdict**: свободно
 
 ---
 
 ## C12-agent-browser-cloud — Браузер для агента как услуга
 
-**name:** Браузер для агента как услуга
-
-**one_liner:** агенту нужен живой Chrome с прокси, обходом ботозащиты, записью сессии и передачей
-управления человеку; платят за часы браузера и за вызовы поиска.
-
-**family:** 12
-
-**buyer:** разработчик агентов, отделы продаж и операций, финтех и здравоохранение (порталы без API).
-
-**players:**
-- browserbase.com — Browserbase, Stagehand, Fetch/Search API, Agent Identity
-- steel.dev — Steel, открытый браузерный API (YC W24)
-- onkernel.com — Kernel, «тёплые» headful-браузеры
-- anchorbrowser.io — Anchor, инфраструктура для computer-use агентов
-- cloudflare.com — Browser Run (переименован из Browser Rendering, добавлены Live View и режим
+- **id**: C12-agent-browser-cloud
+- **name**: Браузер для агента как услуга
+- **one_liner**:
+  агенту нужен живой Chrome с прокси, обходом ботозащиты, записью сессии и передачей
+  управления человеку; платят за часы браузера и за вызовы поиска.
+- **family**: 12
+- **buyer**: разработчик агентов, отделы продаж и операций, финтех и здравоохранение (порталы без API).
+- **players**:
+  - browserbase.com — Browserbase, Stagehand, Fetch/Search API, Agent Identity
+  - steel.dev — Steel, открытый браузерный API (YC W24)
+  - onkernel.com — Kernel, «тёплые» headful-браузеры
+  - anchorbrowser.io — Anchor, инфраструктура для computer-use агентов
+  - cloudflare.com — Browser Run (переименован из Browser Rendering, добавлены Live View и режим
   «человек в контуре»); aws.amazon.com — AgentCore Browser
+- **money**:
+  Browserbase — 67,5 млн $ всего за три раунда, включая Series B на 40 млн $
+  ([Tracxn, 2026](https://tracxn.com/d/companies/browserbase/__PntOqLzB_NnS5mL0UWH1rWXoTe1IiUrvwIshsEEgxe8/funding-and-investors));
+  выручка не раскрыта. Steel — около 17 млн $ привлечено
+  ([StartupHub](https://www.startuphub.ai/startups/steel-dev), агрегатор). Anchor — 6 млн $ seed
+  ([обзор joinmassive](https://www.joinmassive.com/blog/browser-infrastructure-companies-funding),
+  вторичный источник). По Kernel проверяемой суммы не нашёл.
 
-**money:** Browserbase — 67,5 млн $ всего за три раунда, включая Series B на 40 млн $
-([Tracxn, 2026](https://tracxn.com/d/companies/browserbase/__PntOqLzB_NnS5mL0UWH1rWXoTe1IiUrvwIshsEEgxe8/funding-and-investors));
-выручка не раскрыта. Steel — около 17 млн $ привлечено
-([StartupHub](https://www.startuphub.ai/startups/steel-dev), агрегатор). Anchor — 6 млн $ seed
-([обзор joinmassive](https://www.joinmassive.com/blog/browser-infrastructure-companies-funding),
-вторичный источник). По Kernel проверяемой суммы не нашёл.
-
-**pricing (browserbase.com/pricing, 08.08.2026):** Free 0 $ — 3 одновременных браузера, 1 час
-браузера, 1000 вызовов Search и Fetch, 15 минут на сессию; Developer 20 $/мес — 25 браузеров,
-100 часов, далее 0,12 $ за час; Startup 99 $/мес — 100 браузеров, 500 часов, далее 0,10 $ за час;
-Scale по договору. Search 7 $ за 1000 запросов, Fetch 1 $ за 1000 вызовов (4 $ с прокси), прокси
-10–12 $ за ГБ. Ориентир от вендора: 100 часов браузера ≈ 3000 постраничных задач. У AWS веб-поиск
-тоже 7 $ за 1000 запросов (официальный прайс) — цена в категории сходится.
-
-**moat:** договорённости об обходе ботозащиты (Browserbase упоминает партнёрство с Cloudflare),
-пул резидентных прокси, собственная команда обхода детекции, фреймворк Stagehand как точка входа.
-
-**capital:** средняя: нужен парк браузеров и трафик прокси; ключевая статья расхода — прокси, а не CPU.
-
-**time_to_revenue:** 2–6 месяцев (продукт продаётся сразу, спрос очевиден).
-
-**foreign_dependency:** резидентные прокси и IP-репутация вне РФ, оплата, зависимость от политики
-Cloudflare и крупных сайтов; юридический риск — правила сайтов и защита данных.
-
-**ru_analog:** проверяемого российского аналога «браузер для агента как услуга» не нашёл.
-Косвенно роль закрывают изолированные среды VK AI Space и Cloud.ru плюс самостоятельные
-Playwright/Selenium в своём контуре. Российские RPA-вендоры на эту роль не проверял.
-
-**ru_fit:** ломается главное: агенту нужен доступ к внешнему интернету, а мобильный доступ в РФ
-деградировал — в июле 2026 в ЦФО без ограничений работало 30,5% интернет-сессий, в приграничных
-областях около 12% (`research/06-suverennyj-internet.md`). Проводной канал устойчивее, но фильтрация
-ТСПУ работает на любом. Заменяется частично: внутренние корпоративные порталы автоматизируются без
-внешнего трафика. Не заменяется ничем доступ к зарубежным сайтам с российского адреса.
-
-**kill_switch:** сайты массово перекрывают агентов (Cloudflare продаёт и ботозащиту, и браузеры для
-агентов — конфликт интересов внутри одного вендора), либо гиперскейлер включает браузер в тариф.
-
-**failures:** Google Project Mariner — экспериментальный браузерный агент DeepMind — закрыт через
-17 месяцев, технология поглощена Gemini Agent; причины по описанию — приватность и стоимость
-визуальной обработки ([сводка сообщества killedbyai](https://mixtpatrik.github.io/killedbyai/),
-вторым источником не подтверждал). Ранее Google Duplex тихо свёрнут.
+  **pricing (browserbase.com/pricing, 08.08.2026):** Free 0 $ — 3 одновременных браузера, 1 час
+  браузера, 1000 вызовов Search и Fetch, 15 минут на сессию; Developer 20 $/мес — 25 браузеров,
+  100 часов, далее 0,12 $ за час; Startup 99 $/мес — 100 браузеров, 500 часов, далее 0,10 $ за час;
+  Scale по договору. Search 7 $ за 1000 запросов, Fetch 1 $ за 1000 вызовов (4 $ с прокси), прокси
+  10–12 $ за ГБ. Ориентир от вендора: 100 часов браузера ≈ 3000 постраничных задач. У AWS веб-поиск
+  тоже 7 $ за 1000 запросов (официальный прайс) — цена в категории сходится.
+- **moat**:
+  договорённости об обходе ботозащиты (Browserbase упоминает партнёрство с Cloudflare),
+  пул резидентных прокси, собственная команда обхода детекции, фреймворк Stagehand как точка входа.
+- **capital**: средняя: нужен парк браузеров и трафик прокси; ключевая статья расхода — прокси, а не CPU.
+- **time_to_revenue**: 2–6 месяцев (продукт продаётся сразу, спрос очевиден).
+- **foreign_dependency**:
+  резидентные прокси и IP-репутация вне РФ, оплата, зависимость от политики
+  Cloudflare и крупных сайтов; юридический риск — правила сайтов и защита данных.
+- **ru_analog**:
+  проверяемого российского аналога «браузер для агента как услуга» не нашёл.
+  Косвенно роль закрывают изолированные среды VK AI Space и Cloud.ru плюс самостоятельные
+  Playwright/Selenium в своём контуре. Российские RPA-вендоры на эту роль не проверял.
+- **ru_fit**:
+  ломается главное: агенту нужен доступ к внешнему интернету, а мобильный доступ в РФ
+  деградировал — в июле 2026 в ЦФО без ограничений работало 30,5% интернет-сессий, в приграничных
+  областях около 12% (`research/06-suverennyj-internet.md`). Проводной канал устойчивее, но фильтрация
+  ТСПУ работает на любом. Заменяется частично: внутренние корпоративные порталы автоматизируются без
+  внешнего трафика. Не заменяется ничем доступ к зарубежным сайтам с российского адреса.
+- **kill_switch**:
+  сайты массово перекрывают агентов (Cloudflare продаёт и ботозащиту, и браузеры для
+  агентов — конфликт интересов внутри одного вендора), либо гиперскейлер включает браузер в тариф.
+- **failures**:
+  Google Project Mariner — экспериментальный браузерный агент DeepMind — закрыт через
+  17 месяцев, технология поглощена Gemini Agent; причины по описанию — приватность и стоимость
+  визуальной обработки ([сводка сообщества killedbyai](https://mixtpatrik.github.io/killedbyai/),
+  вторым источником не подтверждал). Ранее Google Duplex тихо свёрнут.
+- **proverka**:
+  - **вердикт по России изменён: было «свободно» → стало «частично».**
+  - частично
+  Найдено при проверке: Автор искал по названию продукта («браузер для агента как услуга») и получил пустоту; по названию задачи слой занят плотно. Русскоязычный рынок антидетект-браузеров даёт ровно перечисленные в карточке свойства — изолированные профили, подмену отпечатка (то есть обход детекции), подключение прокси, облачные профили и API автоматизации с массовым запуском и расписанием: Dolphin{anty}, Octo Browser, GoLogin, AdsPower, Multilogin; русский интерфейс, оплата из РФ, цена 10–25 $/мес. Проверяемые ссылки: vc.ru/dev/2133055 «Автоматизация профилей в антидетект-браузере через API: заметки из практики»; vc.ru/services/2151905 (обзор Dolphin{anty} с тарифами); vc.ru/services/2643111 и dtf.ru/nenanimalsia/4571672 — рейтинги 2026 с явным упоминанием облачных сессий и API. Плюс инфраструктурный слой российской разработки: Aerokube Moon — кластер браузеров для Selenium, Playwright и Cypress (aerokube.com/moon/, HTTP 200 на 08.08.2026, «Moon lets you run 4 sessions for free», продажи через sales@aerokube.com), исторически из той же команды, что Selenoid. Не хватает только агентной обвязки — Live View, передачи управления человеку, записи сессий и SDK уровня Stagehand; это и есть настоящая щель, а не «аналога нет».
+- **ru_verdict**: частично
 
 ---
 
 ## C12-agent-memory-service — Память агента как сервис
 
-**name:** Память агента как сервис
-
-**one_liner:** сервис вытаскивает из диалогов и документов устойчивые факты, хранит их и подаёт в
-контекст; платят за операции записи и извлечения.
-
-**family:** 12
-
-**buyer:** разработчик ассистентов и агентов, продуктовая команда, корпорация с требованием SOC 2.
-
-**players:**
-- mem0.ai — Mem0, память в три строки кода
-- getzep.com — Zep, темпоральный граф Graphiti, «контекстное озеро»
-- letta.com — Letta (бывш. MemGPT), состояние агента как основа платформы
-- aws.amazon.com — AgentCore Memory; langchain.com — LangMem
-
-**money:** Mem0 — 24 млн $ за seed и Series A, объявлено 28.10.2025 (seed — Kindred Ventures,
-Series A — Basis Set Ventures, участие Peak XV, GitHub Fund, Y Combinator;
-[mem0.ai/series-a](https://mem0.ai/series-a)); 62 590 звёзд GitHub (счётчик на сайте, 08.08.2026).
-Letta — 10 млн $ seed под руководством Felicis при заявленной постденежной оценке около 70 млн $
-([AgenticWire со ссылкой на Vectorize](https://www.agenticwire.news/article/mem0-zep-letta-agent-memory) —
-вторичный источник). Zep — компания Y Combinator, консолидированной суммы раунда не нашёл: Tracxn
-показывает 500 тыс. $ за один раунд, что похоже на неполные данные.
-
-**pricing:** Mem0 — Hobby бесплатно (10 тыс. операций записи и 1 тыс. извлечений в месяц),
-Starter 19 $/мес, Pro 249 $/мес (500 тыс. записей, 50 тыс. извлечений), Enterprise по договору с
-on-prem ([mem0.ai/pricing](https://mem0.ai/pricing), 08.08.2026). Zep — Flex 1250 $/год (104 $/мес,
-50 тыс. кредитов, далее 25 $ за 10 тыс.), Flex Plus 3750 $/год (200 тыс. кредитов), пакет для
-«растущих компаний» 13 000 $ за первый год, Enterprise по договору
-([getzep.com/pricing](https://www.getzep.com/pricing), 08.08.2026). AWS: краткосрочная память
-0,25 $ за 1000 событий (официальный прайс).
-
-**moat:** качество извлечения на длинных историях, темпоральная модель (что перестало быть верным),
-интеграции с фреймворками, соответствие SOC 2 и HIPAA для корпораций.
-
-**capital:** низкая на входе (это надстройка над векторной базой и графом), высокая на удержании:
-нужен бенчмарк, который выдержит независимую проверку.
-
-**time_to_revenue:** 3–6 месяцев, самообслуживание с бесплатным уровнем.
-
-**foreign_dependency:** модели для извлечения фактов, облако, оплата.
-
-**ru_analog:** отдельного сервиса памяти нет. Функционально закрывают: Cloud.ru Evolution Managed
-RAG в связке с Evolution AI Agents; «навыки» в GigaCowork — описанные словами инструкции,
-переиспользуемые другими отделами (CNews 19.05.2026); в Yandex AI Studio есть Vector Store и
-Responses API, при этом AI Assistant API для новых проектов закрыт с 26.01.2026
-([вторичный источник](https://mayai.ru/yandexgpt-ai-studio-gayd-biznes/), в консоли не проверял).
-
-**ru_fit:** ломается доверие к облачной памяти: персональные данные в памяти агента — это
-локализация по 152-ФЗ и штрафы за утечку до 15 млн ₽, а при повторной — оборотные 1–3% выручки
-(`research/07-stek-i-pravo.md`). Заменяется российским хостингом и on-prem-поставкой. Свободно:
-память агента как сервис с локализацией в РФ и журналом доступа.
-
-**kill_switch:** память становится бесплатной функцией API моделей и облаков; плюс кризис доверия к
-метрикам — Mem0 сообщает 94,4 на LongMemEval, а независимый прогон Vectorize от 15.03.2026 дал 49,0
-для того же бенчмарка ([разбор Digital Applied](https://www.digitalapplied.com/blog/open-source-agent-memory-mem0-letta-zep-compared)).
-Когда цифры вендоров расходятся вдвое, покупатель начинает делать сам.
-
-**failures:** прямых закрытий не нашёл, но виден дрейф от узкой памяти к платформе: Letta по
-документации сейчас продаёт CLI, десктоп и веб-приложение, каналы Slack/Telegram/WhatsApp/Signal,
-собственные «компьютеры» (BYOM и Cloud Sandbox), скиллы и субагентов
-([docs.letta.com](https://docs.letta.com/pricing), 08.08.2026) — то есть память сама по себе
-бизнесом не стала.
+- **id**: C12-agent-memory-service
+- **name**: Память агента как сервис
+- **one_liner**:
+  сервис вытаскивает из диалогов и документов устойчивые факты, хранит их и подаёт в
+  контекст; платят за операции записи и извлечения.
+- **family**: 12
+- **buyer**: разработчик ассистентов и агентов, продуктовая команда, корпорация с требованием SOC 2.
+- **players**:
+  - mem0.ai — Mem0, память в три строки кода
+  - getzep.com — Zep, темпоральный граф Graphiti, «контекстное озеро»
+  - letta.com — Letta (бывш. MemGPT), состояние агента как основа платформы
+  - aws.amazon.com — AgentCore Memory; langchain.com — LangMem
+- **money**:
+  Mem0 — 24 млн $ за seed и Series A, объявлено 28.10.2025 (seed — Kindred Ventures,
+  Series A — Basis Set Ventures, участие Peak XV, GitHub Fund, Y Combinator;
+  [mem0.ai/series-a](https://mem0.ai/series-a)); 62 590 звёзд GitHub (счётчик на сайте, 08.08.2026).
+  Letta — 10 млн $ seed под руководством Felicis при заявленной постденежной оценке около 70 млн $
+  ([AgenticWire со ссылкой на Vectorize](https://www.agenticwire.news/article/mem0-zep-letta-agent-memory) —
+  вторичный источник). Zep — компания Y Combinator, консолидированной суммы раунда не нашёл: Tracxn
+  показывает 500 тыс. $ за один раунд, что похоже на неполные данные.
+- **pricing**:
+  Mem0 — Hobby бесплатно (10 тыс. операций записи и 1 тыс. извлечений в месяц),
+  Starter 19 $/мес, Pro 249 $/мес (500 тыс. записей, 50 тыс. извлечений), Enterprise по договору с
+  on-prem ([mem0.ai/pricing](https://mem0.ai/pricing), 08.08.2026). Zep — Flex 1250 $/год (104 $/мес,
+  50 тыс. кредитов, далее 25 $ за 10 тыс.), Flex Plus 3750 $/год (200 тыс. кредитов), пакет для
+  «растущих компаний» 13 000 $ за первый год, Enterprise по договору
+  ([getzep.com/pricing](https://www.getzep.com/pricing), 08.08.2026). AWS: краткосрочная память
+  0,25 $ за 1000 событий (официальный прайс).
+- **moat**:
+  качество извлечения на длинных историях, темпоральная модель (что перестало быть верным),
+  интеграции с фреймворками, соответствие SOC 2 и HIPAA для корпораций.
+- **capital**:
+  низкая на входе (это надстройка над векторной базой и графом), высокая на удержании:
+  нужен бенчмарк, который выдержит независимую проверку.
+- **time_to_revenue**: 3–6 месяцев, самообслуживание с бесплатным уровнем.
+- **foreign_dependency**: модели для извлечения фактов, облако, оплата.
+- **ru_analog**:
+  отдельного сервиса памяти нет. Функционально закрывают: Cloud.ru Evolution Managed
+  RAG в связке с Evolution AI Agents; «навыки» в GigaCowork — описанные словами инструкции,
+  переиспользуемые другими отделами (CNews 19.05.2026); в Yandex AI Studio есть Vector Store и
+  Responses API, при этом AI Assistant API для новых проектов закрыт с 26.01.2026
+  ([вторичный источник](https://mayai.ru/yandexgpt-ai-studio-gayd-biznes/), в консоли не проверял).
+- **ru_fit**:
+  ломается доверие к облачной памяти: персональные данные в памяти агента — это
+  локализация по 152-ФЗ и штрафы за утечку до 15 млн ₽, а при повторной — оборотные 1–3% выручки
+  (`research/07-stek-i-pravo.md`). Заменяется российским хостингом и on-prem-поставкой. Свободно:
+  память агента как сервис с локализацией в РФ и журналом доступа.
+- **kill_switch**:
+  память становится бесплатной функцией API моделей и облаков; плюс кризис доверия к
+  метрикам — Mem0 сообщает 94,4 на LongMemEval, а независимый прогон Vectorize от 15.03.2026 дал 49,0
+  для того же бенчмарка ([разбор Digital Applied](https://www.digitalapplied.com/blog/open-source-agent-memory-mem0-letta-zep-compared)).
+  Когда цифры вендоров расходятся вдвое, покупатель начинает делать сам.
+- **failures**:
+  прямых закрытий не нашёл, но виден дрейф от узкой памяти к платформе: Letta по
+  документации сейчас продаёт CLI, десктоп и веб-приложение, каналы Slack/Telegram/WhatsApp/Signal,
+  собственные «компьютеры» (BYOM и Cloud Sandbox), скиллы и субагентов
+  ([docs.letta.com](https://docs.letta.com/pricing), 08.08.2026) — то есть память сама по себе
+  бизнесом не стала.
+- **ru_verdict**: свободно
 
 ---
 
 ## C12-tool-auth-layer — Слой инструментов и делегированной авторизации
 
-**name:** Слой инструментов и делегированной авторизации
+- **id**: C12-tool-auth-layer
+- **name**: Слой инструментов и делегированной авторизации
+- **one_liner**:
+  одна интеграция вместо тысячи: агент вызывает Gmail, Salesforce или Jira через
+  чужой шлюз, который держит OAuth от имени конкретного пользователя; платят за вызовы инструментов.
+- **family**: 12
+- **buyer**: разработчик, продуктовая команда, корпоративная ИБ (нужен аудит действий агента).
+- **players**:
+  - composio.dev — Composio, 1000+ инструментов, MCP Gateway
+  - arcade.dev — Arcade, «безопасный слой действий» для корпораций
+  - pipedream.com — Pipedream Connect; toolhouse.ai — Toolhouse
+  - aws.amazon.com — AgentCore Gateway и Identity
+- **money**:
+  Composio — 29 млн $ всего: 4 млн $ seed (со-лиды Together Fund и Elevation Capital) и
+  25 млн $ Series A под руководством Lightspeed, среди ангелов Гильермо Раух (Vercel) и Дхармеш Шах
+  (HubSpot) ([Together Fund](https://www.together.fund/perspectives/insights/investing-in-composio-building-the-learning-layer-for-agentic-ai),
+  [composio.dev/blog/series-a](https://composio.dev/blog/series-a)); заявлено прохождение отметки
+  100 тыс. разработчиков (самозаявление). Arcade — 60 млн $ Series A, 12.06.2026, лид SYN Ventures,
+  стратегические инвесторы Morgan Stanley и Wipro ([arcade.dev/blog](https://www.arcade.dev/blog/)).
 
-**one_liner:** одна интеграция вместо тысячи: агент вызывает Gmail, Salesforce или Jira через
-чужой шлюз, который держит OAuth от имени конкретного пользователя; платят за вызовы инструментов.
-
-**family:** 12
-
-**buyer:** разработчик, продуктовая команда, корпоративная ИБ (нужен аудит действий агента).
-
-**players:**
-- composio.dev — Composio, 1000+ инструментов, MCP Gateway
-- arcade.dev — Arcade, «безопасный слой действий» для корпораций
-- pipedream.com — Pipedream Connect; toolhouse.ai — Toolhouse
-- aws.amazon.com — AgentCore Gateway и Identity
-
-**money:** Composio — 29 млн $ всего: 4 млн $ seed (со-лиды Together Fund и Elevation Capital) и
-25 млн $ Series A под руководством Lightspeed, среди ангелов Гильермо Раух (Vercel) и Дхармеш Шах
-(HubSpot) ([Together Fund](https://www.together.fund/perspectives/insights/investing-in-composio-building-the-learning-layer-for-agentic-ai),
-[composio.dev/blog/series-a](https://composio.dev/blog/series-a)); заявлено прохождение отметки
-100 тыс. разработчиков (самозаявление). Arcade — 60 млн $ Series A, 12.06.2026, лид SYN Ventures,
-стратегические инвесторы Morgan Stanley и Wipro ([arcade.dev/blog](https://www.arcade.dev/blog/)).
-
-**pricing (composio.dev/pricing, 08.08.2026):** бесплатно 20 тыс. вызовов инструментов в месяц;
-29 $/мес за 200 тыс. с переплатой 0,299 $ за 1000 сверх; 229 $/мес за 2 млн с переплатой 0,249 $;
-премиальные инструменты по тройному тарифу; на сайте объявлено изменение цен с 15.08.2026. AWS
-Gateway — 0,005 $ и 0,025 $ за 1000 вызовов в зависимости от типа операции, Identity — 0,010 $ за
-1000 выданных токенов (официальный прайс). Пользователи на Reddit отмечают, что вызов у Composio
-выходит примерно на два порядка дешевле, чем у Arcade — цитата обсуждения, не проверенный расчёт.
-
-**moat:** объём готовых коннекторов, работа с OAuth и refresh-токенами, соответствие требованиям ИБ,
-поддержка MCP как стандарта. Ров тает по мере стандартизации MCP.
-
-**capital:** средняя: коннекторы — это конвейер и поддержка ломающихся API, а не разовая работа.
-
-**time_to_revenue:** 2–6 месяцев на самообслуживании.
-
-**foreign_dependency:** критическая: инструменты — это Gmail, Slack, Notion, Salesforce, HubSpot.
-Для российского покупателя половина каталога неприменима.
-
-**ru_analog:** отдельного вендора нет, зато у платформ есть свои коннекторы: GigaCowork подключает
-CRM, ERP, почту и файловые хранилища по MCP и выполняет действия от учётной записи сотрудника,
-запустившего задачу (CNews 19.05.2026); у ELMA Cortex нативная поддержка MCP
-([разбор архитектур на Хабре](https://habr.com/ru/companies/simpleone/articles/1035466/));
-Just AI Agent Platform продаёт готовые коннекторы к российскому стеку — CRM, CMS, телефония
-(CNews 10.04.2026); Cloud.ru отдаёт MCP-серверы через маркетплейс.
-
-**ru_fit:** каталог инструментов надо перебирать целиком: вместо Salesforce и Gmail — 1С,
-Битрикс24, amoCRM, «Мой склад», Диадок, MAX. Заменяется российским полностью, но каталог придётся
-писать самому — и это же делает нишу защищённой от зарубежных игроков.
-
-**kill_switch:** MCP плюс стандартный OAuth делают слой бесплатным, гиперскейлер продаёт шлюз по
-0,005 $ за 1000 вызовов, а корпорация с ИБ всё равно требует свой шлюз в контуре.
-
-**failures:** проваленных попыток в этой подкатегории с датами закрытия не нашёл; риск виден в другом
-— ценовая конкуренция уже двухпорядковая, а Composio анонсирует смену цен через неделю после
-проверки.
+  **pricing (composio.dev/pricing, 08.08.2026):** бесплатно 20 тыс. вызовов инструментов в месяц;
+  29 $/мес за 200 тыс. с переплатой 0,299 $ за 1000 сверх; 229 $/мес за 2 млн с переплатой 0,249 $;
+  премиальные инструменты по тройному тарифу; на сайте объявлено изменение цен с 15.08.2026. AWS
+  Gateway — 0,005 $ и 0,025 $ за 1000 вызовов в зависимости от типа операции, Identity — 0,010 $ за
+  1000 выданных токенов (официальный прайс). Пользователи на Reddit отмечают, что вызов у Composio
+  выходит примерно на два порядка дешевле, чем у Arcade — цитата обсуждения, не проверенный расчёт.
+- **moat**:
+  объём готовых коннекторов, работа с OAuth и refresh-токенами, соответствие требованиям ИБ,
+  поддержка MCP как стандарта. Ров тает по мере стандартизации MCP.
+- **capital**: средняя: коннекторы — это конвейер и поддержка ломающихся API, а не разовая работа.
+- **time_to_revenue**: 2–6 месяцев на самообслуживании.
+- **foreign_dependency**:
+  критическая: инструменты — это Gmail, Slack, Notion, Salesforce, HubSpot.
+  Для российского покупателя половина каталога неприменима.
+- **ru_analog**:
+  отдельного вендора нет, зато у платформ есть свои коннекторы: GigaCowork подключает
+  CRM, ERP, почту и файловые хранилища по MCP и выполняет действия от учётной записи сотрудника,
+  запустившего задачу (CNews 19.05.2026); у ELMA Cortex нативная поддержка MCP
+  ([разбор архитектур на Хабре](https://habr.com/ru/companies/simpleone/articles/1035466/));
+  Just AI Agent Platform продаёт готовые коннекторы к российскому стеку — CRM, CMS, телефония
+  (CNews 10.04.2026); Cloud.ru отдаёт MCP-серверы через маркетплейс.
+- **ru_fit**:
+  каталог инструментов надо перебирать целиком: вместо Salesforce и Gmail — 1С,
+  Битрикс24, amoCRM, «Мой склад», Диадок, MAX. Заменяется российским полностью, но каталог придётся
+  писать самому — и это же делает нишу защищённой от зарубежных игроков.
+- **kill_switch**:
+  MCP плюс стандартный OAuth делают слой бесплатным, гиперскейлер продаёт шлюз по
+  0,005 $ за 1000 вызовов, а корпорация с ИБ всё равно требует свой шлюз в контуре.
+- **failures**:
+  проваленных попыток в этой подкатегории с датами закрытия не нашёл; риск виден в другом
+  — ценовая конкуренция уже двухпорядковая, а Composio анонсирует смену цен через неделю после
+  проверки.
+- **ru_verdict**: частично
 
 ---
 
 ## C12-human-in-the-loop-approvals — Очередь согласований человеком
 
-**name:** Очередь согласований человеком
-
-**one_liner:** агент останавливается перед опасным действием, запрос уходит человеку в мессенджер,
-решение и обоснование пишутся в журнал; платит компания за управляемый риск.
-
-**family:** 12
-
-**buyer:** средний и крупный бизнес, регулируемые отрасли, ИБ и внутренний аудит.
-
-**players:**
-- humanlayer.dev — HumanLayer (исходно API согласований, сейчас — ИИ-IDE и «фабрика ПО»)
-- trigger.dev — «человек в контуре» указан как штатная возможность платформы
-- langchain.com — прерывания в LangGraph как каноничный механизм
-- cloudflare.com — Human in the Loop внутри Browser Run
-- giga.chat (GigaCowork), elma365.com (ELMA Cortex) — российская реализация внутри платформ
-
-**money:** отдельного бизнеса с раскрытой выручкой в этой подкатегории не нашёл. HumanLayer
-запускался через Y Combinator ([launch YC](https://www.ycombinator.com/launches/M8e-humanlayer-human-in-the-loop-for-ai-agents-and-beyond));
-Tracxn показывает 500 тыс. $ за один раунд и описывает компанию уже как «разработчика IDE для
-оркестрации кодовых агентов» — то есть как сменившую предмет. Trigger.dev с 16 млн $ Series A
-(17.12.2025) перечисляет «human-in-the-loop» среди функций, а не продаёт отдельно.
-
-**pricing:** самостоятельного прайса нет — согласование продаётся как часть платформы. HumanLayer
-сегодня строит экономику иначе: «принесите свою подписку» — свои ключи Claude и Codex вместо
-отдельного счёта за токены ([humanlayer.dev](https://humanlayer.dev/), 08.08.2026).
-
-**moat:** интеграция в каналы согласования (Slack, почта, корпоративный мессенджер), журнал для
-аудита, ролевая модель. Ров слабый: это функция, а не продукт — что и подтвердил разворот HumanLayer.
-
-**capital:** низкая: канал, очередь, журнал и SDK.
-
-**time_to_revenue:** для самостоятельного продукта — неопределённо; в составе внедрения — недели.
-
-**foreign_dependency:** каналы уведомлений (Slack, Telegram) и модели.
-
-**ru_analog:** сильнее, чем на Западе, и внутри платформ. GigaCowork: агенты работают
-самостоятельно, но финальный результат передают человеку; все действия — от учётных данных
-сотрудника, запустившего задачу, с прозрачным логированием. Заявленные Сбером эффекты внедрений:
-скорость обработки документов +80%, экономия рабочего времени сотрудника до 81,5%, у кадровиков 83%,
-подготовка отчётности +70%, поиск кандидатов +93% (цитата Андрея Белевцева,
-[CNews 19.05.2026](https://www.cnews.ru/news/line/2026-05-19_sber_otkryl_dostup_k_testirovaniyu)) —
-самозаявление вендора, независимой проверки нет. У ELMA Cortex автономная работа агентов заявлена на
-лендинге, но в документации отнесена к будущим версиям (разбор на Хабре, 2026).
-
-**ru_fit:** совпадает с российской практикой согласований и регламентов лучше, чем «автономный
-агент»: продавать нужно не автономию, а управляемость. Заменяется российским полностью — каналом
-может быть MAX (85 млн DAU, входит в белые списки) или корпоративный мессенджер;
-Telegram как единственный канал согласований — риск (см. `research/06-suverennyj-internet.md`).
-
-**kill_switch:** согласование становится галочкой во фреймворке и в BPM-движке — уже стало;
-корпорация делает это в существующем процессе согласований, а не покупает отдельный продукт.
-
-**failures:** HumanLayer — самый показательный случай: компания, известная API согласований,
-превратилась в ИИ-IDE и платформу «фабрики ПО» (проверено по сайту 08.08.2026). Категория тонкая:
-как отдельный товар «человек в контуре» на август 2026 не продаётся почти никем.
+- **id**: C12-human-in-the-loop-approvals
+- **name**: Очередь согласований человеком
+- **one_liner**:
+  агент останавливается перед опасным действием, запрос уходит человеку в мессенджер,
+  решение и обоснование пишутся в журнал; платит компания за управляемый риск.
+- **family**: 12
+- **buyer**: средний и крупный бизнес, регулируемые отрасли, ИБ и внутренний аудит.
+- **players**:
+  - humanlayer.dev — HumanLayer (исходно API согласований, сейчас — ИИ-IDE и «фабрика ПО»)
+  - trigger.dev — «человек в контуре» указан как штатная возможность платформы
+  - langchain.com — прерывания в LangGraph как каноничный механизм
+  - cloudflare.com — Human in the Loop внутри Browser Run
+  - giga.chat (GigaCowork), elma365.com (ELMA Cortex) — российская реализация внутри платформ
+- **money**:
+  отдельного бизнеса с раскрытой выручкой в этой подкатегории не нашёл. HumanLayer
+  запускался через Y Combinator ([launch YC](https://www.ycombinator.com/launches/M8e-humanlayer-human-in-the-loop-for-ai-agents-and-beyond));
+  Tracxn показывает 500 тыс. $ за один раунд и описывает компанию уже как «разработчика IDE для
+  оркестрации кодовых агентов» — то есть как сменившую предмет. Trigger.dev с 16 млн $ Series A
+  (17.12.2025) перечисляет «human-in-the-loop» среди функций, а не продаёт отдельно.
+- **pricing**:
+  самостоятельного прайса нет — согласование продаётся как часть платформы. HumanLayer
+  сегодня строит экономику иначе: «принесите свою подписку» — свои ключи Claude и Codex вместо
+  отдельного счёта за токены ([humanlayer.dev](https://humanlayer.dev/), 08.08.2026).
+- **moat**:
+  интеграция в каналы согласования (Slack, почта, корпоративный мессенджер), журнал для
+  аудита, ролевая модель. Ров слабый: это функция, а не продукт — что и подтвердил разворот HumanLayer.
+- **capital**: низкая: канал, очередь, журнал и SDK.
+- **time_to_revenue**: для самостоятельного продукта — неопределённо; в составе внедрения — недели.
+- **foreign_dependency**: каналы уведомлений (Slack, Telegram) и модели.
+- **ru_analog**:
+  сильнее, чем на Западе, и внутри платформ. GigaCowork: агенты работают
+  самостоятельно, но финальный результат передают человеку; все действия — от учётных данных
+  сотрудника, запустившего задачу, с прозрачным логированием. Заявленные Сбером эффекты внедрений:
+  скорость обработки документов +80%, экономия рабочего времени сотрудника до 81,5%, у кадровиков 83%,
+  подготовка отчётности +70%, поиск кандидатов +93% (цитата Андрея Белевцева,
+  [CNews 19.05.2026](https://www.cnews.ru/news/line/2026-05-19_sber_otkryl_dostup_k_testirovaniyu)) —
+  самозаявление вендора, независимой проверки нет. У ELMA Cortex автономная работа агентов заявлена на
+  лендинге, но в документации отнесена к будущим версиям (разбор на Хабре, 2026).
+- **ru_fit**:
+  совпадает с российской практикой согласований и регламентов лучше, чем «автономный
+  агент»: продавать нужно не автономию, а управляемость. Заменяется российским полностью — каналом
+  может быть MAX (85 млн DAU, входит в белые списки) или корпоративный мессенджер;
+  Telegram как единственный канал согласований — риск (см. `research/06-suverennyj-internet.md`).
+- **kill_switch**:
+  согласование становится галочкой во фреймворке и в BPM-движке — уже стало;
+  корпорация делает это в существующем процессе согласований, а не покупает отдельный продукт.
+- **failures**:
+  HumanLayer — самый показательный случай: компания, известная API согласований,
+  превратилась в ИИ-IDE и платформу «фабрики ПО» (проверено по сайту 08.08.2026). Категория тонкая:
+  как отдельный товар «человек в контуре» на август 2026 не продаётся почти никем.
+- **ru_verdict**: частично
 
 ---
 
 ## C12-coding-agent-console — Пульт параллельных кодовых агентов
 
-**name:** Пульт параллельных кодовых агентов
-
-**one_liner:** один инженер ведёт десяток кодовых агентов по разным ветками и репозиториям: доска
-задач, изоляция, дифф-ревью, слияние; платит инженер или команда.
-
-**family:** 12
-
-**buyer:** разработчик, тимлид, инженерная команда; апселл — «фабрика ПО» на подряде.
-
-**players:**
-- conductor.build — Conductor (Melty Labs), «команда кодовых агентов в облаке»
-- aq.dev — AQ, «многопользовательский пульт» для команды на своей инфраструктуре
-- humanlayer.dev — HumanLayer, IDE плюс блоки для фабрики ПО
-- imbue.com — Sculptor, изоляция агентов в Docker
-- Vibe Kanban (OSS, ранее Bloop), Claude Squad, Emdash, Google Antigravity Mission Control
-
-**money:** раскрытой выручки по подкатегории не нашёл. Сравнительные обзоры за 2026 год перечисляют
-7–10 живых инструментов ([Nimbalyst, 01.06.2026](https://nimbalyst.com/blog/best-agent-management-tools-2026/),
-[augmentcode.com](https://www.augmentcode.com/tools/open-source-agent-orchestrators)). Контекст спроса
-из `prompt/landscape-2026.md`: Cognition (Devin) — 492 млн $ годовой выручки и оценка 26 млрд $
-в мае 2026, и BCG Platinion фиксирует организации, где фабрику ПО ведут три инженера.
-
-**pricing:** преимущественно бесплатно и открытый код; платное — командные версии на своей
-инфраструктуре. Conductor описывается как бесплатный локальный инструмент под macOS
-([сравнение на aq.dev](https://aq.dev/alternatives/vibe-kanban/)). HumanLayer — модель «своя подписка».
-
-**moat:** привычка инженера и вкус к рабочему процессу; данных-рва нет. Слабое место — прослойка
-поверх чужого агента, которого вендор может встроить сам.
-
-**capital:** минимальная: один-два инженера, распространение через GitHub и демонстрации.
-
-**time_to_revenue:** быстро для платной командной версии (недели-месяцы), но чек низкий.
-
-**foreign_dependency:** полная: инструмент бесполезен без Claude Code, Codex или их аналогов, а
-подписки на них из РФ не оплачиваются напрямую.
-
-**ru_analog:** Яндекс SourceCraft с Code Assistant — агенты внутри собственной платформы разработки;
-в ансамбль моделей включён DeepSeek-V3.2, агенту можно поручить запуск автотестов, создание
-репозитория и развёртывание ([пресс-релиз Яндекса 03.03.2026](https://yandex.ru/company/news/03-03-2026-01)).
-Российское сообщество на Хабре фиксирует «tmux плюс worktree» как де-факто протокол ожиданий
-([статья](https://habr.com/ru/articles/1063558/)). GitVerse и аналогичные площадки на роль пульта
-не проверял.
-
-**ru_fit:** ломается оплата подписок на зарубежные кодовые агенты; заменяется частично — SourceCraft
-и GigaCode работают в рублях, но пульта для параллельных агентов поверх них не нашёл. Это узкая
-свободная ниша с низким чеком.
-
-**kill_switch:** вендор IDE или агента встраивает пульт бесплатно — Antigravity уже несёт Mission
-Control, Claude Code и Cursor двигаются туда же.
-
-**failures:** Bloop, компания за Vibe Kanban, объявила о закрытии в начале 2026: облачные сервисы
-свёрнуты, платные подписки возвращены, проект живёт как сообществный открытый код
-([Augment Code](https://www.augmentcode.com/tools/open-source-agent-orchestrators)). Это первое
-закрытие внутри подкатегории и точный портрет её экономики.
+- **id**: C12-coding-agent-console
+- **name**: Пульт параллельных кодовых агентов
+- **one_liner**:
+  один инженер ведёт десяток кодовых агентов по разным ветками и репозиториям: доска
+  задач, изоляция, дифф-ревью, слияние; платит инженер или команда.
+- **family**: 12
+- **buyer**: разработчик, тимлид, инженерная команда; апселл — «фабрика ПО» на подряде.
+- **players**:
+  - conductor.build — Conductor (Melty Labs), «команда кодовых агентов в облаке»
+  - aq.dev — AQ, «многопользовательский пульт» для команды на своей инфраструктуре
+  - humanlayer.dev — HumanLayer, IDE плюс блоки для фабрики ПО
+  - imbue.com — Sculptor, изоляция агентов в Docker
+  - Vibe Kanban (OSS, ранее Bloop), Claude Squad, Emdash, Google Antigravity Mission Control
+- **money**:
+  раскрытой выручки по подкатегории не нашёл. Сравнительные обзоры за 2026 год перечисляют
+  7–10 живых инструментов ([Nimbalyst, 01.06.2026](https://nimbalyst.com/blog/best-agent-management-tools-2026/),
+  [augmentcode.com](https://www.augmentcode.com/tools/open-source-agent-orchestrators)). Контекст спроса
+  из `prompt/landscape-2026.md`: Cognition (Devin) — 492 млн $ годовой выручки и оценка 26 млрд $
+  в мае 2026, и BCG Platinion фиксирует организации, где фабрику ПО ведут три инженера.
+- **pricing**:
+  преимущественно бесплатно и открытый код; платное — командные версии на своей
+  инфраструктуре. Conductor описывается как бесплатный локальный инструмент под macOS
+  ([сравнение на aq.dev](https://aq.dev/alternatives/vibe-kanban/)). HumanLayer — модель «своя подписка».
+- **moat**:
+  привычка инженера и вкус к рабочему процессу; данных-рва нет. Слабое место — прослойка
+  поверх чужого агента, которого вендор может встроить сам.
+- **capital**: минимальная: один-два инженера, распространение через GitHub и демонстрации.
+- **time_to_revenue**: быстро для платной командной версии (недели-месяцы), но чек низкий.
+- **foreign_dependency**:
+  полная: инструмент бесполезен без Claude Code, Codex или их аналогов, а
+  подписки на них из РФ не оплачиваются напрямую.
+- **ru_analog**:
+  Яндекс SourceCraft с Code Assistant — агенты внутри собственной платформы разработки;
+  в ансамбль моделей включён DeepSeek-V3.2, агенту можно поручить запуск автотестов, создание
+  репозитория и развёртывание ([пресс-релиз Яндекса 03.03.2026](https://yandex.ru/company/news/03-03-2026-01)).
+  Российское сообщество на Хабре фиксирует «tmux плюс worktree» как де-факто протокол ожиданий
+  ([статья](https://habr.com/ru/articles/1063558/)). GitVerse и аналогичные площадки на роль пульта
+  не проверял.
+- **ru_fit**:
+  ломается оплата подписок на зарубежные кодовые агенты; заменяется частично — SourceCraft
+  и GigaCode работают в рублях, но пульта для параллельных агентов поверх них не нашёл. Это узкая
+  свободная ниша с низким чеком.
+- **kill_switch**:
+  вендор IDE или агента встраивает пульт бесплатно — Antigravity уже несёт Mission
+  Control, Claude Code и Cursor двигаются туда же.
+- **failures**:
+  Bloop, компания за Vibe Kanban, объявила о закрытии в начале 2026: облачные сервисы
+  свёрнуты, платные подписки возвращены, проект живёт как сообществный открытый код
+  ([Augment Code](https://www.augmentcode.com/tools/open-source-agent-orchestrators)). Это первое
+  закрытие внутри подкатегории и точный портрет её экономики.
+- **ru_verdict**: частично
 
 ---
 
 ## C12-lowcode-agent-orchestration — Low-code оркестрация с ИИ-блоками
 
-**name:** Low-code оркестрация с ИИ-блоками
-
-**one_liner:** визуальная цепочка шагов с коннекторами и вызовами моделей, которую собирает не
-программист; платят подписку или транзакции.
-
-**family:** 12
-
-**buyer:** малый и средний бизнес, отделы внутри корпораций, интеграторы-партнёры.
-
-**players:**
-- n8n.io — n8n, самохостинг плюс облако
-- make.com, zapier.com, gumloop.com, lindy.ai — зарубежная витрина
-- dify.ai — Dify, открытая платформа агентных рабочих процессов
-- albato.ru, nodul.ru, cloud.ru (AI Workflows) — российская часть
-
-**money:**
-- n8n: 180 млн $ Series C при оценке 2,5 млрд $ (октябрь 2025,
+- **id**: C12-lowcode-agent-orchestration
+- **name**: Low-code оркестрация с ИИ-блоками
+- **one_liner**:
+  визуальная цепочка шагов с коннекторами и вызовами моделей, которую собирает не
+  программист; платят подписку или транзакции.
+- **family**: 12
+- **buyer**: малый и средний бизнес, отделы внутри корпораций, интеграторы-партнёры.
+- **players**:
+  - n8n.io — n8n, самохостинг плюс облако
+  - make.com, zapier.com, gumloop.com, lindy.ai — зарубежная витрина
+  - dify.ai — Dify, открытая платформа агентных рабочих процессов
+  - albato.ru, nodul.ru, cloud.ru (AI Workflows) — российская часть
+- **money**:
+  - n8n: 180 млн $ Series C при оценке 2,5 млрд $ (октябрь 2025,
   [blog.n8n.io/series-c](https://blog.n8n.io/series-c/)); 12.05.2026 SAP вошёл стратегической
   инвестицией при оценке 5,2 млрд $ — около 60 млн € за чуть менее 1,3%, о сделке сообщал Bloomberg;
   ARR перешагнул 100 млн €, 1400+ корпоративных клиентов, 1,7 млн активных сборщиков в месяц, более
   80% рабочих процессов содержат ИИ-агентов; n8n встраивается в SAP Joule Studio с GA в третьем
   квартале 2026. Все цифры выручки — оценки Sacra и ARR Club, компания выручку не раскрывает
   (сводка [Startup Riders, 25.06.2026](https://www.startupriders.com/p/n8n-growth-playbook)).
-- Dify: более 130 тыс. звёзд GitHub; облако 59–159 $ за рабочее пространство в месяц (вторичные
+  - Dify: более 130 тыс. звёзд GitHub; облако 59–159 $ за рабочее пространство в месяц (вторичные
   обзоры 2026); лицензия — модифицированная Apache-2.0, запрещающая многоарендную SaaS-перепродажу
   без коммерческого соглашения ([MarkTechPost, 18.07.2026](https://www.marktechpost.com/2026/07/18/10-open-source-no-code-ai-platforms-for-building-llm-apps-rag-systems-and-ai-agents/)).
-- Российские цены: Nodul от 590 ₽/мес с бесплатным тарифом; Aimylogic (Just AI) от 990 ₽/мес
+  - Российские цены: Nodul от 590 ₽/мес с бесплатным тарифом; Aimylogic (Just AI) от 990 ₽/мес
   (тариф Startup, 100 подписчиков) до 14 900 ₽/мес (Premium); Албато тарифицирует транзакциями —
   3 транзакции за запуск агента плюс 1 за 2000 токенов
   ([блог Албато, 2026](https://blog.albato.ru/rossijskie-platformy-dlya-ii-agentov-v-2026-top-10-s-czenami-i-sravneniem/) —
   блог вендора-участника рынка).
-
-**pricing:** подписка по числу мест или рабочих пространств, потребление по исполнениям либо
-транзакциям, бесплатный самохостинг как канал привлечения.
-
-**moat:** библиотека коннекторов, сообщество шаблонов, самохостинг как аргумент для тех, кто не
-пойдёт в облако (именно он привёл SAP), дистрибуция через партнёров.
-
-**capital:** высокая для новой платформы (n8n привлёк 254 млн $ по Tracxn), низкая для нишевой
-надстройки или партнёрской практики.
-
-**time_to_revenue:** недели для партнёрской практики, годы для своей платформы.
-
-**foreign_dependency:** зарубежные SaaS-коннекторы и оплата; у Dify — лицензионный запрет на
-перепродажу как услуги.
-
-**ru_analog:** занято. Албато, Nodul, Битрикс24 с ИИ-агентами в тарифе, Cloud.ru AI Workflows
-(low-code конструктор с коннекторами к 1С, Jira, Confluence, PostgreSQL, почте и мессенджерам,
-публичное тестирование с апреля 2026, tproger). Обзор рынка называет минимум 10 российских платформ
-с диапазоном «от 590 ₽/мес до корпоративных по запросу» (блог Албато, 2026).
-
-**ru_fit:** ломается оплата зарубежных подписок и стабильность доступа без VPN; заменяется
-российскими платформами полностью. Свободного места мало: это самая занятая подкатегория семьи в РФ.
-
-**kill_switch:** гиперскейлер или CRM включает конструктор в тариф (Битрикс24 уже включил), либо
-крупный вендор ПО покупает платформу и закрывает её от партнёров.
-
-**failures:** Flowise, визуальный конструктор агентов, куплен Workday 14.08.2025
-([пресс-релиз Workday](https://newsroom.workday.com/2025-08-14-Workday-Acquires-Flowise,-Bringing-Powerful-AI-Agent-Builder-Capabilities-to-the-Workday-Platform)) —
-самостоятельный путь закончился поглощением. Langfuse (соседний слой наблюдаемости) куплен
-ClickHouse в январе 2026 (Presenc AI). Самое жёсткое: ByteDance (Doubao) и Alibaba (Qwen) 15.07.2026
-одновременно отключили пользовательские конструкторы агентов из-за вступивших в силу «Временных мер»
-по антропоморфным ИИ-сервисам — перестали работать и уже созданные агенты
-([TechNode 06.07.2026](https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/),
-[SCMP](https://www.scmp.com/tech/big-tech/article/3359482/bytedance-and-alibaba-disable-humanlike-ai-custom-agents-new-rules-loom)).
+- **pricing**:
+  подписка по числу мест или рабочих пространств, потребление по исполнениям либо
+  транзакциям, бесплатный самохостинг как канал привлечения.
+- **moat**:
+  библиотека коннекторов, сообщество шаблонов, самохостинг как аргумент для тех, кто не
+  пойдёт в облако (именно он привёл SAP), дистрибуция через партнёров.
+- **capital**:
+  высокая для новой платформы (n8n привлёк 254 млн $ по Tracxn), низкая для нишевой
+  надстройки или партнёрской практики.
+- **time_to_revenue**: недели для партнёрской практики, годы для своей платформы.
+- **foreign_dependency**:
+  зарубежные SaaS-коннекторы и оплата; у Dify — лицензионный запрет на
+  перепродажу как услуги.
+- **ru_analog**:
+  занято. Албато, Nodul, Битрикс24 с ИИ-агентами в тарифе, Cloud.ru AI Workflows
+  (low-code конструктор с коннекторами к 1С, Jira, Confluence, PostgreSQL, почте и мессенджерам,
+  публичное тестирование с апреля 2026, tproger). Обзор рынка называет минимум 10 российских платформ
+  с диапазоном «от 590 ₽/мес до корпоративных по запросу» (блог Албато, 2026).
+- **ru_fit**:
+  ломается оплата зарубежных подписок и стабильность доступа без VPN; заменяется
+  российскими платформами полностью. Свободного места мало: это самая занятая подкатегория семьи в РФ.
+- **kill_switch**:
+  гиперскейлер или CRM включает конструктор в тариф (Битрикс24 уже включил), либо
+  крупный вендор ПО покупает платформу и закрывает её от партнёров.
+- **failures**:
+  Flowise, визуальный конструктор агентов, куплен Workday 14.08.2025
+  ([пресс-релиз Workday](https://newsroom.workday.com/2025-08-14-Workday-Acquires-Flowise,-Bringing-Powerful-AI-Agent-Builder-Capabilities-to-the-Workday-Platform)) —
+  самостоятельный путь закончился поглощением. Langfuse (соседний слой наблюдаемости) куплен
+  ClickHouse в январе 2026 (Presenc AI). Самое жёсткое: ByteDance (Doubao) и Alibaba (Qwen) 15.07.2026
+  одновременно отключили пользовательские конструкторы агентов из-за вступивших в силу «Временных мер»
+  по антропоморфным ИИ-сервисам — перестали работать и уже созданные агенты
+  ([TechNode 06.07.2026](https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/),
+  [SCMP](https://www.scmp.com/tech/big-tech/article/3359482/bytedance-and-alibaba-disable-humanlike-ai-custom-agents-new-rules-loom)).
+- **ru_verdict**: занято
 
 ---
 
 ## C12-enterprise-agent-platform-onprem — Корпоративная агентная платформа в изолированном контуре
 
-**name:** Корпоративная агентная платформа в изолированном контуре
+- **id**: C12-enterprise-agent-platform-onprem
+- **name**: Корпоративная агентная платформа в изолированном контуре
+- **one_liner**:
+  корпорация покупает единую среду, где бизнес-подразделения собирают агентов сами, а
+  ИБ получает изоляцию, RBAC, аудит и поставку в свой контур.
+- **family**: 12
+- **buyer**:
+  крупный бизнес, госкомпании, банки, промышленность.
 
-**one_liner:** корпорация покупает единую среду, где бизнес-подразделения собирают агентов сами, а
-ИБ получает изоляцию, RBAC, аудит и поставку в свой контур.
+  **players (Россия):**
+  - just-ai.com — Just AI Agent Platform (Enterprise, Cloud, открытый дистрибутив)
+  - giga.chat — GigaChat Enterprise («ГигаЧат Бизнес») и GigaCowork от «Салют для бизнеса» (группа Сбер)
+  - mts.ai — MWS AI Agents Platform и модуль «ИИ-команда» (AI Force)
+  - vk.tech — VK AI Space (домен из этой сети не ответил на запрос 08.08.2026, сведения из обзора CNews)
+  - elma365.com — ELMA Cortex; simpleone.ru — SimpleOne GenAI; bpmsoft.ru — BPMSoft AI
+  - cloud.ru — Evolution AI Agents / AI Factory
 
-**family:** 12
-
-**buyer:** крупный бизнес, госкомпании, банки, промышленность.
-
-**players (Россия):**
-- just-ai.com — Just AI Agent Platform (Enterprise, Cloud, открытый дистрибутив)
-- giga.chat — GigaChat Enterprise («ГигаЧат Бизнес») и GigaCowork от «Салют для бизнеса» (группа Сбер)
-- mts.ai — MWS AI Agents Platform и модуль «ИИ-команда» (AI Force)
-- vk.tech — VK AI Space (домен из этой сети не ответил на запрос 08.08.2026, сведения из обзора CNews)
-- elma365.com — ELMA Cortex; simpleone.ru — SimpleOne GenAI; bpmsoft.ru — BPMSoft AI
-- cloud.ru — Evolution AI Agents / AI Factory
-
-**players (мир):** salesforce.com (Agentforce), servicenow.com, uipath.com (Maestro),
-aws.amazon.com (AgentCore), microsoft.com (Copilot Studio / Agent Framework).
-
-**money:**
-- Salesforce: ARR Agentforce 800 млн $, +169% год к году, закрыто 29 тыс. сделок — официальный отчёт
+  **players (мир):** salesforce.com (Agentforce), servicenow.com, uipath.com (Maestro),
+  aws.amazon.com (AgentCore), microsoft.com (Copilot Studio / Agent Framework).
+- **money**:
+  - Salesforce: ARR Agentforce 800 млн $, +169% год к году, закрыто 29 тыс. сделок — официальный отчёт
   за четвёртый квартал 2026 финансового года, 25.02.2026
   ([пресс-релиз](https://www.salesforce.com/news/press-releases/2026/02/25/fy26-q4-earnings/)).
   Встречающиеся «8000+ клиентов» и «900 млн $ выручки от ИИ за 6 месяцев» — вторичные пересказы,
   не подтверждены отчётом.
-- МТС вложила около 4 млрд ₽ в MWS AI Agents Platform (данные «Коммерсанта», начало декабря 2025,
+  - МТС вложила около 4 млрд ₽ в MWS AI Agents Platform (данные «Коммерсанта», начало декабря 2025,
   сводка [TAdviser](https://www.tadviser.ru/index.php/Продукт:MWS_AI_Agents_Platform)); компания
   оценивает снижение стоимости разработки приложений и агентов минимум в шесть раз (оценка вендора).
   21.05.2026 выпущен модуль «ИИ-команда» — агент, создающий других агентов по текстовому описанию.
-- Сбер: GigaChat Enterprise открыт 03.03.2026 ([CNews](https://www.cnews.ru/news/line/2026-03-03_sberbank_predstavil_gigachat)),
+  - Сбер: GigaChat Enterprise открыт 03.03.2026 ([CNews](https://www.cnews.ru/news/line/2026-03-03_sberbank_predstavil_gigachat)),
   GigaCowork открыт для тестирования 19.05.2026 (CNews); эффекты внедрений — самозаявление
   (см. карточку C12-human-in-the-loop-approvals). Плановый эффект от GenAI в 2025 году — 50 млрд ₽
   ([b2b.giga.chat](https://b2b.giga.chat/multi-agent-system), самозаявление).
-- Just AI Agent Platform Cloud: линейка от бесплатного доступа до 49 990 ₽/мес за 100 рабочих мест
+  - Just AI Agent Platform Cloud: линейка от бесплатного доступа до 49 990 ₽/мес за 100 рабочих мест
   ([CNews 10.04.2026](https://www.cnews.ru/news/line/2026-04-10_just_ai_agent_platform_vyhodit_v_oblako)).
-- Рынок и база: российский рынок генеративного ИИ к началу 2026 года — 58 млрд ₽ (аналитическая
+  - Рынок и база: российский рынок генеративного ИИ к началу 2026 года — 58 млрд ₽ (аналитическая
   служба CNews); до промышленной эксплуатации доходит лишь 7–10% пилотов GenAI даже в крупных
   российских технологических компаниях (там же). Российский рынок BPMS по итогам 2025 года —
   33–34 млрд ₽, зрелые платформы BPMSoft, ELMA365, Directum RX (исследование фонда «Сколково» и
@@ -749,261 +734,246 @@ aws.amazon.com (AgentCore), microsoft.com (Copilot Studio / Agent Framework).
   14,7 млрд ₽ (+86%) (GoCloud 09.04.2026, tproger). Объём потребления на платформе Яндекса:
   в четвёртом квартале 2025 года через API Yandex AI Studio прошло более 150 млрд токенов
   ([пресс-релиз Яндекса 03.03.2026](https://yandex.ru/company/news/03-03-2026-01)).
-
-**pricing:** корпоративная лицензия и проект. Отдельно выделяется ELMA Cortex: поставка только
-on-premise, лицензия фиксированная и не зависит от объёма токенов — по разбору архитектур это
-уникальная для рынка модель (Хабр, автор из SimpleOne, вендор-нейтральность заявлена частично).
-BPMSoft добавил элемент конструктора «Работа с LLM» в релизе 1.9 (февраль 2026, более 350
-ИИ-доработок). У Agentforce публично упоминается тариф «0,10 $ за действие» (вторичный источник).
-
-**moat:** закупки и аттестации, интеграция в уже стоящую систему (переезд ради ИИ не окупается),
-изолированный контур как требование ИБ, отраслевые готовые агенты.
-
-**capital:** очень высокая: 4 млрд ₽ у МТС — ориентир порядка. Для малой команды доступен только
-партнёрский путь: сборка агентов на чужой платформе.
-
-**time_to_revenue:** 6–18 месяцев цикла продажи; у партнёра — 1–3 месяца на первый проект.
-
-**foreign_dependency:** у российских платформ низкая по замыслу: Just AI заявляет
-LLM-agnostic-архитектуру и соответствие 152-ФЗ, MWS AI поддерживает Qwen, DeepSeek, ChatGPT, Claude
-и свой Cotype, Yandex AI Studio даёт доступ более чем к 30 моделям и полноценный on-premises
-(пресс-релиз 03.03.2026).
-
-**ru_analog:** занято плотно и крупными игроками — это главный вывод по семье. Свободного места для
-нового вендора платформы почти нет; остаётся вертикальная специализация и партнёрство.
-
-**ru_fit:** работает лучше зарубежного: изолированный контур, оплата в рублях, локализация данных.
-Что ломается — сроки: массовое внедрение мультиагентных систем в РФ эксперты в обзоре CNews относят
-к 2027–2028 годам, то есть выручка сегодня — это пилоты.
-
-**kill_switch:** платформа от Сбера, МТС, VK или Яндекса раздаётся в составе экосистемной подписки,
-и независимый вендор теряет цену. Второй сценарий — регуляторный: китайский прецедент 15.07.2026
-показал, что конструктор агентов можно отключить решением регулятора за неделю.
-
-**failures:** закрытий российских агентных платформ на август 2026 не нашёл — рынок молодой.
-Косвенный провал зафиксирован внутри самого рынка: генеральный директор «Салют для бизнеса»
-объясняет появление GigaCowork тем, что точечная автоматизация агентами не встраивается в реальные
-процессы и остаётся изолированной (CNews 19.05.2026).
+- **pricing**:
+  корпоративная лицензия и проект. Отдельно выделяется ELMA Cortex: поставка только
+  on-premise, лицензия фиксированная и не зависит от объёма токенов — по разбору архитектур это
+  уникальная для рынка модель (Хабр, автор из SimpleOne, вендор-нейтральность заявлена частично).
+  BPMSoft добавил элемент конструктора «Работа с LLM» в релизе 1.9 (февраль 2026, более 350
+  ИИ-доработок). У Agentforce публично упоминается тариф «0,10 $ за действие» (вторичный источник).
+- **moat**:
+  закупки и аттестации, интеграция в уже стоящую систему (переезд ради ИИ не окупается),
+  изолированный контур как требование ИБ, отраслевые готовые агенты.
+- **capital**:
+  очень высокая: 4 млрд ₽ у МТС — ориентир порядка. Для малой команды доступен только
+  партнёрский путь: сборка агентов на чужой платформе.
+- **time_to_revenue**: 6–18 месяцев цикла продажи; у партнёра — 1–3 месяца на первый проект.
+- **foreign_dependency**:
+  у российских платформ низкая по замыслу: Just AI заявляет
+  LLM-agnostic-архитектуру и соответствие 152-ФЗ, MWS AI поддерживает Qwen, DeepSeek, ChatGPT, Claude
+  и свой Cotype, Yandex AI Studio даёт доступ более чем к 30 моделям и полноценный on-premises
+  (пресс-релиз 03.03.2026).
+- **ru_analog**:
+  занято плотно и крупными игроками — это главный вывод по семье. Свободного места для
+  нового вендора платформы почти нет; остаётся вертикальная специализация и партнёрство.
+- **ru_fit**:
+  работает лучше зарубежного: изолированный контур, оплата в рублях, локализация данных.
+  Что ломается — сроки: массовое внедрение мультиагентных систем в РФ эксперты в обзоре CNews относят
+  к 2027–2028 годам, то есть выручка сегодня — это пилоты.
+- **kill_switch**:
+  платформа от Сбера, МТС, VK или Яндекса раздаётся в составе экосистемной подписки,
+  и независимый вендор теряет цену. Второй сценарий — регуляторный: китайский прецедент 15.07.2026
+  показал, что конструктор агентов можно отключить решением регулятора за неделю.
+- **failures**:
+  закрытий российских агентных платформ на август 2026 не нашёл — рынок молодой.
+  Косвенный провал зафиксирован внутри самого рынка: генеральный директор «Салют для бизнеса»
+  объясняет появление GigaCowork тем, что точечная автоматизация агентами не встраивается в реальные
+  процессы и остаётся изолированной (CNews 19.05.2026).
+- **ru_verdict**: занято
 
 ---
 
 ## C12-managed-open-agent-hosting — Управляемый хостинг открытого агента
 
-**name:** Управляемый хостинг открытого агента
-
-**one_liner:** берём популярного открытого агента, разворачиваем как управляемый сервис с
-наблюдаемостью, политиками безопасности и поддержкой; платит компания за спокойствие.
-
-**family:** 12
-
-**buyer:** средний и крупный бизнес, ИТ-подразделения, разработчики без DevOps.
-
-**players:**
-- cloud.ru — EvoClaw, управляемый облачный сервис для OpenClaw и других открытых агентных
+- **id**: C12-managed-open-agent-hosting
+- **name**: Управляемый хостинг открытого агента
+- **one_liner**:
+  берём популярного открытого агента, разворачиваем как управляемый сервис с
+  наблюдаемостью, политиками безопасности и поддержкой; платит компания за спокойствие.
+- **family**: 12
+- **buyer**: средний и крупный бизнес, ИТ-подразделения, разработчики без DevOps.
+- **players**:
+  - cloud.ru — EvoClaw, управляемый облачный сервис для OpenClaw и других открытых агентных
   фреймворков; Agent Space как клиент на протоколе A2A
-- NemoClaw — корпоративная версия OpenClaw с изолированной средой и заранее описанным доступом к
+  - NemoClaw — корпоративная версия OpenClaw с изолированной средой и заранее описанным доступом к
   сети и файлам (описание в [kod.ru](https://kod.ru/cloud-ru-evoclaw-ai-agents))
-- cloudflare.com — Agents SDK и превью следующего поколения под названием Project Think
-- letta.com — Letta с BYOM и Cloud Sandbox для собственных «компьютеров» агента
-
-**money:** выручки по подкатегории нет ни у кого публично. Известен масштаб платформы-носителя:
-Cloud.ru — 76,5 млрд ₽ выручки за 2025 год (+50%), лидер по выручке от ИИ-сервисов за 2025 год по
-данным CNews Analytics (сноска на сайте cloud.ru). Cloud.ru одним из первых в России начал открытое
-тестирование OpenClaw в феврале 2026, EvoClaw анонсирован на GoCloud 09.04.2026
-([ComNews](https://www.comnews.ru/content/244684/2026-04-09/2026-w15/1018/cloudru-zapustil-avtonomnogo-ii-agenta-evoclaw-dlya-avtomatizacii-biznes-zadach)).
-
-**pricing:** публичных прайсов не нашёл; ожидаемая модель — потребление вычислений плюс плата за
-управление, как у любого managed-сервиса.
-
-**moat:** операционный опыт и дежурства, ограждения и журналирование, право говорить «мы отвечаем за
-этот агент». Ров слабый против самого апстрима, если он выпустит своё облако.
-
-**capital:** средняя: нужна инфраструктура и дежурная смена, но не своя модель и не свой агент.
-
-**time_to_revenue:** 1–3 месяца: продукт уже написан кем-то другим.
-
-**foreign_dependency:** апстрим-проект и его лицензия; смена лицензии убивает бизнес за один релиз.
-
-**ru_analog:** это редкий случай, где Россия не отстаёт: EvoClaw — именно управляемый хостинг
-открытого агента, а не копия зарубежного SaaS.
-
-**ru_fit:** совпадает с российским спросом: компании хотят открытый агент, но в своём контуре и с
-чьей-то ответственностью. Заменяется российским полностью. Не заменяется ничем скорость апстрима:
-если открытый проект остановится, сервис останется без развития.
-
-**kill_switch:** апстрим меняет лицензию или выпускает своё облако; либо инцидент безопасности с
-агентом, у которого есть доступ к инфраструктуре, — а доступ здесь по определению широкий
-(директор центра киберзащиты Cloud.ru прямо описывает модель, где агент сам разворачивает
-инфраструктуру по доверенным ему учётным записям, tproger 2026).
-
-**failures:** закрытий не нашёл — подкатегории меньше года.
+  - cloudflare.com — Agents SDK и превью следующего поколения под названием Project Think
+  - letta.com — Letta с BYOM и Cloud Sandbox для собственных «компьютеров» агента
+- **money**:
+  выручки по подкатегории нет ни у кого публично. Известен масштаб платформы-носителя:
+  Cloud.ru — 76,5 млрд ₽ выручки за 2025 год (+50%), лидер по выручке от ИИ-сервисов за 2025 год по
+  данным CNews Analytics (сноска на сайте cloud.ru). Cloud.ru одним из первых в России начал открытое
+  тестирование OpenClaw в феврале 2026, EvoClaw анонсирован на GoCloud 09.04.2026
+  ([ComNews](https://www.comnews.ru/content/244684/2026-04-09/2026-w15/1018/cloudru-zapustil-avtonomnogo-ii-agenta-evoclaw-dlya-avtomatizacii-biznes-zadach)).
+- **pricing**:
+  публичных прайсов не нашёл; ожидаемая модель — потребление вычислений плюс плата за
+  управление, как у любого managed-сервиса.
+- **moat**:
+  операционный опыт и дежурства, ограждения и журналирование, право говорить «мы отвечаем за
+  этот агент». Ров слабый против самого апстрима, если он выпустит своё облако.
+- **capital**: средняя: нужна инфраструктура и дежурная смена, но не своя модель и не свой агент.
+- **time_to_revenue**: 1–3 месяца: продукт уже написан кем-то другим.
+- **foreign_dependency**: апстрим-проект и его лицензия; смена лицензии убивает бизнес за один релиз.
+- **ru_analog**:
+  это редкий случай, где Россия не отстаёт: EvoClaw — именно управляемый хостинг
+  открытого агента, а не копия зарубежного SaaS.
+- **ru_fit**:
+  совпадает с российским спросом: компании хотят открытый агент, но в своём контуре и с
+  чьей-то ответственностью. Заменяется российским полностью. Не заменяется ничем скорость апстрима:
+  если открытый проект остановится, сервис останется без развития.
+- **kill_switch**:
+  апстрим меняет лицензию или выпускает своё облако; либо инцидент безопасности с
+  агентом, у которого есть доступ к инфраструктуре, — а доступ здесь по определению широкий
+  (директор центра киберзащиты Cloud.ru прямо описывает модель, где агент сам разворачивает
+  инфраструктуру по доверенным ему учётным записям, tproger 2026).
+- **failures**: закрытий не нашёл — подкатегории меньше года.
+- **ru_verdict**: частично
 
 ---
 
 ## C12-agent-catalog-marketplace — Каталог и витрина агентов внутри платформы
 
-**name:** Каталог и витрина агентов внутри платформы
-
-**one_liner:** витрина готовых агентов, MCP-серверов и коннекторов внутри платформы: владелец
-платформы берёт долю или подписку, поставщик получает дистрибуцию.
-
-**family:** 12
-
-**buyer:** конечный бизнес (покупает готового агента), разработчик-поставщик (покупает дистрибуцию).
-
-**players:**
-- cloud.ru — Agent Space с каталогом более 20 бизнес-сценариев, включая «Агент Python-разработчик»,
+- **id**: C12-agent-catalog-marketplace
+- **name**: Каталог и витрина агентов внутри платформы
+- **one_liner**:
+  витрина готовых агентов, MCP-серверов и коннекторов внутри платформы: владелец
+  платформы берёт долю или подписку, поставщик получает дистрибуцию.
+- **family**: 12
+- **buyer**: конечный бизнес (покупает готового агента), разработчик-поставщик (покупает дистрибуцию).
+- **players**:
+  - cloud.ru — Agent Space с каталогом более 20 бизнес-сценариев, включая «Агент Python-разработчик»,
   и маркетплейс MCP-серверов
-- just-ai.com — экосистема Caila: единый API к 300+ моделям и библиотека коннекторов
-- salesforce.com — AgentExchange, где UiPath выложила Maestro Connector и CX Companion
+  - just-ai.com — экосистема Caila: единый API к 300+ моделям и библиотека коннекторов
+  - salesforce.com — AgentExchange, где UiPath выложила Maestro Connector и CX Companion
   ([BusinessWire 16.04.2026](https://www.businesswire.com/news/home/20260416022472/en/UiPath-Announces-AI-Powered-Orchestration-and-CX-Automation-on-Salesforce-AgentExchange))
-- aws.amazon.com — AgentCore Gateway с индексируемыми целями и семантическим поиском инструментов
-
-**money:** доходов витрин по агентам публично нет. Соседний ориентир из `prompt/landscape-2026.md`:
-экосистема MCP выросла до 97 млн загрузок в месяц к началу 2026 при монетизации менее 5%. Косвенный
-показатель спроса: Cloud.ru держит каталог из 20+ сценариев, Just AI — 300+ моделей под одним API.
-
-**pricing:** внутри платформ — включено в подписку; в зарубежных витринах — доля владельца площадки
-(конкретных ставок для агентных витрин не нашёл).
-
-**moat:** сетевой эффект двух сторон, доверие к площадке, право на модерацию.
-
-**capital:** средняя: витрина без платящей аудитории мертва, поэтому её обычно строит владелец
-платформы, а не независимая команда.
-
-**time_to_revenue:** для поставщика на чужой витрине — недели; для своей витрины — годы.
-
-**foreign_dependency:** для российского поставщика — нулевая, если витрина российская; для витрины —
-зависимость от каталога зарубежных инструментов.
-
-**ru_analog:** Cloud.ru Agent Space и маркетплейс MCP, Caila от Just AI, ELMA365 Store
-(вендорские и партнёрские решения, 100+ решений на площадке). Форма — посредник.
-
-**ru_fit:** работает: витрина внутри российской платформы не зависит ни от App Store, ни от Google
-Play, где приём денег от россиян закрыт (`research/06-suverennyj-internet.md`). Слабое место —
-платящая аудитория: витрины пока внутри корпоративных контуров, массовой розницы нет.
-
-**kill_switch:** владелец платформы меняет правила или экономику витрины односторонним решением —
-прецедент с эффективной комиссией 45% в VK Mini Apps в 2021 году (`research/06-suverennyj-internet.md`).
-
-**failures:** прямых закрытий агентных витрин не нашёл. Ближайшая по смыслу катастрофа — отключение
-плагинов ChatGPT, из-за которого разработчики потеряли канал дистрибуции (сводка killedbyai,
-вторым источником не подтверждал).
+  - aws.amazon.com — AgentCore Gateway с индексируемыми целями и семантическим поиском инструментов
+- **money**:
+  доходов витрин по агентам публично нет. Соседний ориентир из `prompt/landscape-2026.md`:
+  экосистема MCP выросла до 97 млн загрузок в месяц к началу 2026 при монетизации менее 5%. Косвенный
+  показатель спроса: Cloud.ru держит каталог из 20+ сценариев, Just AI — 300+ моделей под одним API.
+- **pricing**:
+  внутри платформ — включено в подписку; в зарубежных витринах — доля владельца площадки
+  (конкретных ставок для агентных витрин не нашёл).
+- **moat**: сетевой эффект двух сторон, доверие к площадке, право на модерацию.
+- **capital**:
+  средняя: витрина без платящей аудитории мертва, поэтому её обычно строит владелец
+  платформы, а не независимая команда.
+- **time_to_revenue**: для поставщика на чужой витрине — недели; для своей витрины — годы.
+- **foreign_dependency**:
+  для российского поставщика — нулевая, если витрина российская; для витрины —
+  зависимость от каталога зарубежных инструментов.
+- **ru_analog**:
+  Cloud.ru Agent Space и маркетплейс MCP, Caila от Just AI, ELMA365 Store
+  (вендорские и партнёрские решения, 100+ решений на площадке). Форма — посредник.
+- **ru_fit**:
+  работает: витрина внутри российской платформы не зависит ни от App Store, ни от Google
+  Play, где приём денег от россиян закрыт (`research/06-suverennyj-internet.md`). Слабое место —
+  платящая аудитория: витрины пока внутри корпоративных контуров, массовой розницы нет.
+- **kill_switch**:
+  владелец платформы меняет правила или экономику витрины односторонним решением —
+  прецедент с эффективной комиссией 45% в VK Mini Apps в 2021 году (`research/06-suverennyj-internet.md`).
+- **failures**:
+  прямых закрытий агентных витрин не нашёл. Ближайшая по смыслу катастрофа — отключение
+  плагинов ChatGPT, из-за которого разработчики потеряли канал дистрибуции (сводка killedbyai,
+  вторым источником не подтверждал).
+- **ru_verdict**: частично
 
 ---
 
 ## C12-orchestration-services — Оркестрация как услуга: доведение пилота до эксплуатации
 
-**name:** Оркестрация как услуга: доведение пилота до эксплуатации
+- **id**: C12-orchestration-services
+- **name**: Оркестрация как услуга: доведение пилота до эксплуатации
+- **one_liner**:
+  подрядчик берёт агентный пилот, который не доехал до продакшена, и достраивает
+  оркестрацию, состояние, наблюдаемость и согласования; платит средний и крупный бизнес.
+- **family**: 12
+- **buyer**: средний бизнес, корпорация, госзаказчик.
+- **players**:
+  - osmi-it.ru — полный цикл внедрения агентов с интеграцией CRM, ERP, API и мониторингом
+  - zebrains.ru — мультиагентные платформы и внедрение
+  - nikta.ai, secret-agents.ru — агентства внедрения
+  - just-ai.com — GenAI-консалтинг: диагностика процессов, дорожная карта, хакатоны
+  - korusconsulting.ru — внедрение BPMSoft и ELMA365 как несущего слоя оркестрации
 
-**one_liner:** подрядчик берёт агентный пилот, который не доехал до продакшена, и достраивает
-оркестрацию, состояние, наблюдаемость и согласования; платит средний и крупный бизнес.
-
-**family:** 12
-
-**buyer:** средний бизнес, корпорация, госзаказчик.
-
-**players:**
-- osmi-it.ru — полный цикл внедрения агентов с интеграцией CRM, ERP, API и мониторингом
-- zebrains.ru — мультиагентные платформы и внедрение
-- nikta.ai, secret-agents.ru — агентства внедрения
-- just-ai.com — GenAI-консалтинг: диагностика процессов, дорожная карта, хакатоны
-- korusconsulting.ru — внедрение BPMSoft и ELMA365 как несущего слоя оркестрации
-
-**money и цены (российский рынок):**
-- Тиры внедрения: базовый 50–200 тыс. ₽, средний 300 тыс. — 1,5 млн ₽, корпоративный
+  **money и цены (российский рынок):**
+  - Тиры внедрения: базовый 50–200 тыс. ₽, средний 300 тыс. — 1,5 млн ₽, корпоративный
   3–15 млн ₽; месячные расходы соответственно 5–15 тыс., 15–80 тыс., от 300 тыс. ₽; пилот
   100–200 тыс. ₽ за 2–4 недели ([vc.ru, 12.03.2026, Максим Козлов, веб-студия АП-ИМ](https://vc.ru/ai/2791769-stoimost-ii-agenta-dlya-biznesa) —
   сторона-исполнитель, не независимая аналитика).
-- Отдельно про оркестратор: «стоимость установки оркестратора начинается примерно от 700 000 ₽ — и
+  - Отдельно про оркестратор: «стоимость установки оркестратора начинается примерно от 700 000 ₽ — и
   это только установка ПО на сервер, без настройки сценариев» (там же, со ссылкой на данные РБК).
-- Другая выборка: бесплатный прототип, MVP 100–175 тыс. ₽, полный проект 200–375 тыс. ₽
+  - Другая выборка: бесплатный прототип, MVP 100–175 тыс. ₽, полный проект 200–375 тыс. ₽
   ([рейтинг компаний по внедрению ИИ, июль 2026](https://rating-agentstv.ru/rating-kompaniy-po-vnedreniyu-ii-po-cene/) —
   каталог-агрегатор, качество данных не проверено).
-- Базовая ставка спроса: до промышленной эксплуатации доходит 7–10% российских пилотов GenAI
+  - Базовая ставка спроса: до промышленной эксплуатации доходит 7–10% российских пилотов GenAI
   (аналитическая служба CNews, обзор 2026); в мире 88% пилотов с агентами не доходят до продакшена
   (`prompt/landscape-2026.md`, данные Anaconda и Forrester).
-
-**pricing:** проект плюс сопровождение; реже — доля от экономии. Ретейнер на сопровождение —
-от 15 тыс. ₽/мес в малом сегменте до 300+ тыс. ₽ в корпоративном (по тем же расчётам vc.ru).
-
-**moat:** отраслевые шаблоны, доступ к закупкам, готовые коннекторы к 1С и российским CRM, репутация
-на кейсах. Ров человеческий, а не технологический — воспроизводим конкурентом.
-
-**capital:** минимальная: 2–4 человека и один референсный кейс.
-
-**time_to_revenue:** 2–8 недель до первого платежа (пилот с предоплатой).
-
-**foreign_dependency:** средняя: часть стека — открытые зарубежные библиотеки (LangGraph, Temporal),
-которые ставятся в контур; модели российские.
-
-**ru_analog:** занято, но не консолидировано: десятки агентств и интеграторов, разброс цен в 30 раз
-на словесно одинаковую услугу. Форма — услуга.
-
-**ru_fit:** самая работоспособная форма в РФ на август 2026: платит корпоративный бюджет в рублях,
-доступ к моделям решается GigaChat и Yandex AI Studio, ограничений сторов и эквайринга нет.
-Ломается воспроизводимость: услуга не масштабируется без продукта.
-
-**kill_switch:** вендоры платформ включают внедрение в стоимость лицензии (Just AI прямо продаёт
-«готовых агентов под ключ» вместе с платформой), а low-code снижает цену работы до неинтересной.
-
-**failures:** статистики закрытий агентств не нашёл. Наблюдаемый провал — на стороне заказчика:
-90–93% пилотов не доезжают до эксплуатации, и часть этих денег — это оплаченные и списанные проекты
-подрядчиков.
+- **pricing**:
+  проект плюс сопровождение; реже — доля от экономии. Ретейнер на сопровождение —
+  от 15 тыс. ₽/мес в малом сегменте до 300+ тыс. ₽ в корпоративном (по тем же расчётам vc.ru).
+- **moat**:
+  отраслевые шаблоны, доступ к закупкам, готовые коннекторы к 1С и российским CRM, репутация
+  на кейсах. Ров человеческий, а не технологический — воспроизводим конкурентом.
+- **capital**: минимальная: 2–4 человека и один референсный кейс.
+- **time_to_revenue**: 2–8 недель до первого платежа (пилот с предоплатой).
+- **foreign_dependency**:
+  средняя: часть стека — открытые зарубежные библиотеки (LangGraph, Temporal),
+  которые ставятся в контур; модели российские.
+- **ru_analog**:
+  занято, но не консолидировано: десятки агентств и интеграторов, разброс цен в 30 раз
+  на словесно одинаковую услугу. Форма — услуга.
+- **ru_fit**:
+  самая работоспособная форма в РФ на август 2026: платит корпоративный бюджет в рублях,
+  доступ к моделям решается GigaChat и Yandex AI Studio, ограничений сторов и эквайринга нет.
+  Ломается воспроизводимость: услуга не масштабируется без продукта.
+- **kill_switch**:
+  вендоры платформ включают внедрение в стоимость лицензии (Just AI прямо продаёт
+  «готовых агентов под ключ» вместе с платформой), а low-code снижает цену работы до неинтересной.
+- **failures**:
+  статистики закрытий агентств не нашёл. Наблюдаемый провал — на стороне заказчика:
+  90–93% пилотов не доезжают до эксплуатации, и часть этих денег — это оплаченные и списанные проекты
+  подрядчиков.
+- **ru_verdict**: занято
 
 ---
 
 ## C12-orchestration-training — Обучение и сертификация оркестраторов агентов
 
-**name:** Обучение и сертификация оркестраторов агентов
-
-**one_liner:** платное обучение инженеров и аналитиков проектированию мультиагентных систем: графы
-состояний, память, ограждения, контрольные точки человека.
-
-**family:** 12
-
-**buyer:** корпорация (обучение команды), частное лицо (переквалификация).
-
-**players:**
-- infosystems.ru — Академия информационных систем, программа «Оркестрация ИИ-агентов и
+- **id**: C12-orchestration-training
+- **name**: Обучение и сертификация оркестраторов агентов
+- **one_liner**:
+  платное обучение инженеров и аналитиков проектированию мультиагентных систем: графы
+  состояний, память, ограждения, контрольные точки человека.
+- **family**: 12
+- **buyer**: корпорация (обучение команды), частное лицо (переквалификация).
+- **players**:
+  - infosystems.ru — Академия информационных систем, программа «Оркестрация ИИ-агентов и
   мультиагентных систем» с LangGraph, AutoGen и CrewAI
   ([описание](https://www.infosystems.ru/courses/Specialized-areas/AI-MAS/))
-- shad.yandex.ru и agentsweek.yandex.com — Agents Week Школы анализа данных: reasoning, оркестрация
+  - shad.yandex.ru и agentsweek.yandex.com — Agents Week Школы анализа данных: reasoning, оркестрация
   мультиагентных систем, ограждения
-- just-ai.com — образовательные программы, хакатоны, конференция CONVERSATIONS (25–26.06.2026)
-- b2b.giga.chat — гайд Сбера по разработке и внедрению мультиагентных систем как лид-магнит
-- otus.ru — открытые уроки вида «LangGraph + MCP в Cursor IDE» (упомянуты в материале на Хабре)
-
-**money:** цен программ не нашёл — ни у Академии информационных систем, ни у Agents Week (нет
-данных). Косвенный размер спроса: программа Академии подана как корпоративная, у Сбера гайд
-позиционируется на CEO, CTO, архитекторов и аналитиков, Just AI проводит собственную премию
-Generation AI Awards 2026. Продавать обучение помогает та же базовая ставка: 7–10% пилотов доходят
-до эксплуатации (CNews, 2026), то есть узкое место — люди, а не модели.
-
-**pricing:** ожидаемо корпоративная программа за группу и открытый набор за место; конкретных ставок
-не подтвердил.
-
-**moat:** имя школы и практикующие преподаватели; в России — привязка к стеку GigaChat/Yandex,
-которого в зарубежных курсах нет.
-
-**capital:** минимальная: один преподаватель, стенд и площадка.
-
-**time_to_revenue:** 1–2 месяца (набор на первый поток).
-
-**foreign_dependency:** учебный стенд обычно на зарубежных библиотеках; для практики нужен доступ к
-моделям — решается GigaChat и Yandex AI Studio.
-
-**ru_analog:** частично занято: курсы есть у Академии информационных систем, ШАД, Just AI, OTUS;
-сертификации именно по оркестрации агентов, признаваемой рынком, не нашёл — это свободное место.
-
-**ru_fit:** работает без оговорок: оплата в рублях, обучение в контуре заказчика, никаких сторов.
-Слабое место — вендоры отдают обучение бесплатно как генерацию спроса (Сбер — гайдом, Яндекс —
-Agents Week, Cloud.ru — конференцией).
-
-**kill_switch:** вендорские бесплатные программы и встроенные в платформу «академии» вытесняют
-платные курсы; спрос падает, если оркестрация уйдёт в low-code и перестанет требовать инженера.
-
-**failures:** конкретных закрытий образовательных программ по теме не нашёл.
+  - just-ai.com — образовательные программы, хакатоны, конференция CONVERSATIONS (25–26.06.2026)
+  - b2b.giga.chat — гайд Сбера по разработке и внедрению мультиагентных систем как лид-магнит
+  - otus.ru — открытые уроки вида «LangGraph + MCP в Cursor IDE» (упомянуты в материале на Хабре)
+- **money**:
+  цен программ не нашёл — ни у Академии информационных систем, ни у Agents Week (нет
+  данных). Косвенный размер спроса: программа Академии подана как корпоративная, у Сбера гайд
+  позиционируется на CEO, CTO, архитекторов и аналитиков, Just AI проводит собственную премию
+  Generation AI Awards 2026. Продавать обучение помогает та же базовая ставка: 7–10% пилотов доходят
+  до эксплуатации (CNews, 2026), то есть узкое место — люди, а не модели.
+- **pricing**:
+  ожидаемо корпоративная программа за группу и открытый набор за место; конкретных ставок
+  не подтвердил.
+- **moat**:
+  имя школы и практикующие преподаватели; в России — привязка к стеку GigaChat/Yandex,
+  которого в зарубежных курсах нет.
+- **capital**: минимальная: один преподаватель, стенд и площадка.
+- **time_to_revenue**: 1–2 месяца (набор на первый поток).
+- **foreign_dependency**:
+  учебный стенд обычно на зарубежных библиотеках; для практики нужен доступ к
+  моделям — решается GigaChat и Yandex AI Studio.
+- **ru_analog**:
+  частично занято: курсы есть у Академии информационных систем, ШАД, Just AI, OTUS;
+  сертификации именно по оркестрации агентов, признаваемой рынком, не нашёл — это свободное место.
+- **ru_fit**:
+  работает без оговорок: оплата в рублях, обучение в контуре заказчика, никаких сторов.
+  Слабое место — вендоры отдают обучение бесплатно как генерацию спроса (Сбер — гайдом, Яндекс —
+  Agents Week, Cloud.ru — конференцией).
+- **kill_switch**:
+  вендорские бесплатные программы и встроенные в платформу «академии» вытесняют
+  платные курсы; спрос падает, если оркестрация уйдёт в low-code и перестанет требовать инженера.
+- **failures**: конкретных закрытий образовательных программ по теме не нашёл.
+- **ru_verdict**: частично
 
 ---
 
@@ -1080,3 +1050,31 @@ Agents Week, Cloud.ru — конференцией).
 13. **Юридическая сторона агентных действий в РФ** (кто отвечает за действие агента от учётной записи
     сотрудника, как это соотносится с ФЗ-243 от 26.07.2026) в этом проходе не исследовалась —
     опирался на `research/07-stek-i-pravo.md`, где такой разбор отсутствует.
+
+---
+
+---
+
+---
+
+## Проверка скептиком: правки к цифрам этой семьи
+
+Правки адверсариальной проверки, относящиеся к семье целиком, а не к одной карточке (3 шт.). Правки, привязанные к карточке, стоят в самой карточке полем `proverka`. Источник — `../data/proverka.json`.
+
+**Уточнено.** «LangGraph занимает около 38% производственных мультиагентных внедрений, собственная оркестрация — 28%, CrewAI — 12%, AutoGen — 9%, OpenAI Swarm — 2% (Presenc AI, обновление май 2026)»
+
+Верное значение: Цифры существуют и переданы точно, но рамка неверна в четырёх местах. (1) Окно оценки — I квартал 2026 («Estimated production deployments (Q1 2026)»), а «май 2026» — только дата правки страницы; все значения в источнике стоят с тильдой. (2) Файл выбросил три строки той же таблицы: Anthropic Claude Skills compositions ~5%, Google ADK ~4%, Other ~3%; процитированные пять строк дают 89%, и Swarm выглядит замыкающим, хотя под ним в источнике ещё 3%, а Claude Skills и ADK идут выше него. (3) Методика шире и хуже описанной в файле: помимо звёзд GitHub и телеметрии по 25+ клиентам это ещё тренды загрузок, кейсы вендоров и опросы третьих сторон, прямо названные как «LangChain blog 2026 deployment surveys» — доля лидера частично опирается на маркетинговые опросы самого LangChain, то есть замкнутый круг. (4) Тот же источник не знает о Microsoft Agent Framework и держит AutoGen живым на ~9% — значит им нельзя одновременно обосновывать и доли внедрений, и утверждение файла о поглощении AutoGen 03.04.2026. Формулировка «использовать как порядок, не как факт» в разделе «Что не проверено» верна, но в карточке цифры даны без оговорки про Q1 и без выброшенных строк.
+
+Чем проверено: Страница получена curl 08.08.2026: https://presenc.ai/research/multi-agent-orchestration-frameworks-2026 — HTTP 200, 95 904 байта, «By Ramanath, CTO & Co-Founder at Presenc AI · Last updated: May 2026». Таблица воспроизведена дословно: «Estimated production deployments (Q1 2026): LangGraph ~38% of multi-agent production deployments; Custom orchestration (Python/TypeScript) ~28%; CrewAI ~12%; Microsoft AutoGen ~9%; Anthropic Claude Skills compositions ~5%; Google ADK ~4%; OpenAI Swarm ~2%; Other (Semantic Kernel, Haystack agents, etc.) ~3%». Раздел Methodology дословно: «Production-deployment estimates aggregated from public framework GitHub stars and download trends, vendor case studies, third-party surveys (LangChain blog 2026 deployment surveys, AutoGen community reports), and Presenc AI deployment instrumentation across 25+ enterprise multi-agent customers». Там же оговорка автора:…
+
+**Уточнено.** «n8n стоит 5,2 млрд $ после входа SAP 12.05.2026 и перешагнул 100 млн € ARR; 1400+ корпоративных клиентов, 1,7 млн активных сборщиков в месяц, более 80% рабочих процессов с ИИ-агентами (Startup Riders, 25.06.2026)»
+
+Верное значение: Дата 12.05.2026 подтверждается как дата собственного анонса n8n, оценка 5,2 млрд $ — как метка при покупке SAP доли «just under 1.3%» примерно за 60 млн €, то есть не приоритетный раунд с новым капиталом, а миноритарная стратегическая сделка (проверка арифметики: 60 млн €/1,3% ≈ 4,6 млрд € ≈ 5,2 млрд $ — внутренне согласовано). Формулировка «n8n стоит 5,2 млрд $» должна звучать как «оценён в 5,2 млрд $ при входе SAP через долю менее 1,3%». По ARR источник противоречит сам себе: заголовок и ссылка на ARR Club дают $100M+, текст — «crossed €100M+ post-SAP», при базе «Sacra estimated ARR around $40M by mid-year». Писать «100 млн €» как установленный факт нельзя: валюта расходится внутри одного пересказа. Оговорка файла «все цифры выручки — оценки Sacra и ARR Club» неполна: клиенты (1400+), сборщики (1,7 млн), структура выручки 55/30/15 и, по контексту абзаца, доля 80% рабочих процессов с агентами — тоже оценка Sacra, а не раскрытие компании. Побочная нестыковка внутри карточки: «n8n привлёк 254 млн $ по Tracxn» согласуется только с суммой до SAP (€55 млн Series B + $180 млн Series C + seed); если 60 млн € от SAP — первичные деньги, итог должен быть около 310–320 млн $.
+
+Чем проверено: Статья получена curl 08.08.2026: https://www.startupriders.com/p/n8n-growth-playbook — HTTP 200, 419 212 байт, автор Ivan Landabaso, дата Jun 25, 2026, заголовок «n8n's Growth Playbook: 0 to $100M ARR … a $5.2B AI company». Дословно: «In May of this year SAP (europe's largest software firm) took a stake in n8n at a $5.2 billion valuation and agreed to embed it inside its own AI product. Which is double the $2.5 billion the company was worth in October 2025»; «So SAP is embedding n8n inside Joule Studio (GA Q3 2026) and invested at $5.2B, around €60M for just under 1.3%». Дисклеймер автора: «n8n does not disclose revenue, so the ARR figures here are Sacra estimates or the founder's own growth multiples. Treat directional estimates as directional». Про метрики дословно: «According to Sacra, the company today in 2026 serves 1,400+ enterprise customers and supports a community of 1.7…
+
+**Уточнено.** «Эффекты GigaCowork: обработка документов быстрее на 80%, экономия времени сотрудника до 81,5%, у кадровиков 83%, отчётность +70%, поиск кандидатов +93% — цитата Андрея Белевцева, CNews 19.05.2026»
+
+Верное значение: Сами числа переданы точно (80% / 81,5% / 83% / 70% / 93%), но атрибуция неверна: проценты стоят в другой, более ранней цитате, а речь Белевцева в этой новости — про перевод регламентов в управляемую автоматизацию, без цифр. Корректная ссылка: пресс-релиз «Салют для бизнеса» в новостной линейке CNews от 19.05.2026 13:26 (Дмитрий Степанов), спикер по процентам из текста не устанавливается. Пропущена шестая цифра того же абзаца — сокращение времени на анализ информации и контекста на 30–50%. Оценка файла «самозаявление вендора, независимой проверки нет» подтверждается и усиливается: ни базы сравнения, ни выборки, ни методики, а сама новость — об открытии доступа к тестированию, значит «уже реализованные кейсы» — это внутренние пилоты Сбера, а не внешние клиенты.
+
+Чем проверено: Страница получена curl 08.08.2026: https://www.cnews.ru/news/line/2026-05-19_sber_otkryl_dostup_k_testirovaniyu — HTTP 200, 131 616 байт, рубрика «Новости/line» (новостная линейка пресс-релизов), «19 Мая 2026 13:26», подпись Дмитрий Степанов. Абзац с цифрами дословно: «Агенты помогут быстрее принимать стратегические решения за счет сокращения времени на анализ информации и контекста на 30-50% в сравнении с ручным поиском и сбором. Так, в уже реализованных кейсах внедрения платформы, скорость обработки документов возрастает на 80%, экономия рабочего времени сотрудника достигает 81,5%, а для специалистов по управлению персоналом оптимизация времени составляет 83%. Подготовка отчетности ускоряется на 70%, а поиск кандидатов – на 93%».» — абзац закрывается кавычкой, то есть это чужая прямая речь, но открывающая кавычка и имя спикера в этом фрагменте не идентифицируются. Цитата Белевцева в…
